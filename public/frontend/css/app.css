@@ -1,0 +1,5 @@
+/* Để các hình Slide được đẹp, không bị giựt mắt khi chuyển slide => tất cả các slide nên có chiều cao bằng nhau */
+.hinh-slider {
+    width: 100%;
+    height: 350px;
+}
