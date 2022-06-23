@@ -1,26 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>JustBook</title>
-    <link rel="stylesheet" href="{{asset('public/frontend/css/style.css')}}">
-    <link rel="stylesheet" href="{{asset('public/frontend/css/base.css')}}">
-    <link rel="stylesheet" href="{{asset('public/frontend/css/main.css')}}">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.1/css/all.css" integrity="sha384-O8whS3fhG2OnA5Kas0Y9l3cfpmYjapjI0E4theH4iuMD+pLhbf6JI0jIMfYcK3yZ" crossorigin="anonymous">
 
-    <!-- Bootstrap Jquery -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>    
-</head>
-<body>
 
-    <?php
-        session_start();
-    ?>
     
     <div id="main">
         <div class="dau">
@@ -28,7 +7,7 @@
                 <nav class="dau__navbar">
                     <ul class="dau__navbar-list">
                         <li class="dau__navbar-item dau__navbar-item--has-qr dau__navbar-item--separate">
-                            Cửa hàng bán sách hàng đầu Findbook
+                            Cửa hàng bán sách hàng đầu Findbook 
 
                             <!-- Begin:dau QR Code -->
                             <div class="dau__qr">                           
@@ -157,12 +136,12 @@
                             <h1 class="dau__logo-img">Findbook</h1>
                         </a>
                     </div>
-
-                    <form action="Book.php" method="post" class="dau__search">
+                                            
+                    <form action="{{url('/search')}}" class="dau__search" type="get">
                             <div class="dau__search-input-wrap">
-                                <input type="text" name="key" class="dau__search-input" placeholder="Nhập tên sách để tìm kiếm dễ dàng hơn">
+                                <input type="text" name="query" class="dau__search-input" placeholder="Nhập tên sách để tìm kiếm">
                             </div>
-                            <div class="dau__search-select">
+                            <div class="dau__search-select"> 
                                 <a href="Book.php" class="dau__search-select-label">FIND BOOK</a>
                                 <i class="dau__search-select-icon fas fa-book"></i>
                             </div>
@@ -180,100 +159,5 @@
                 </div>
             </div>  
         </div>
-                
-        @yield('content')
-
-        <!-- Footer -->
-        <footer class="footer">
-            <div class="grid">
-                <div class="grid__row">
-                    <div class="grid__column-2-4">
-                        <h3 class="footer__heading">Chăm sóc khách hàng</h3>
-                        <ul class="footer-list">
-                            <li class="footer-item">
-                                <a href="" class="footer-item__link">Trung Tâm Trợ Giúp</a>
-                            </li>
-                            <li class="footer-item">
-                                <a href="" class="footer-item__link">JustBook Mall</a>
-                            </li>
-                            <li class="footer-item">
-                                <a href="" class="footer-item__link">Hướng dẫn mua hàng</a>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="grid__column-2-4">
-                        <h3 class="footer__heading">Giới thiệu</h3>
-                        <ul class="footer-list">
-                            <li class="footer-item">
-                                <a href="" class="footer-item__link">Giới thiệu</a>
-                            </li>
-                            <li class="footer-item">
-                                <a href="" class="footer-item__link">Tuyển dụng</a>
-                            </li>
-                            <li class="footer-item">
-                                <a href="" class="footer-item__link">Điều khoản</a>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="grid__column-2-4">
-                        <h3 class="footer__heading">Danh mục</h3>
-                        <ul class="footer-list">
-                            <li class="footer-item">
-                                <a href="" class="footer-item__link">Sách tốt nhất</a>
-                            </li>
-                            <li class="footer-item">
-                                <a href="" class="footer-item__link">Sách bán chạy</a>
-                            </li>
-                            <li class="footer-item">
-                                <a href="" class="footer-item__link">Sách tìm kiếm nhiều nhất</a>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="grid__column-2-4">
-                        <h3 class="footer__heading">Theo dõi</h3>
-                        <ul class="footer-list">
-                            <li class="footer-item">
-                                <a href="" class="footer-item__link">
-                                    <i class="footer-item__icon fab fa-facebook"></i>
-                                    Facebook
-                                </a>
-                            </li>
-                            <li class="footer-item">
-                                <a href="" class="footer-item__link">
-                                    <i class="footer-item__icon fab fa-instagram"></i>
-                                    Instagram
-                                </a>
-                            </li>
-                            <li class="footer-item">
-                                <a href="" class="footer-item__link">
-                                    <i class="footer-item__icon fab fa-linkedin"></i>
-                                    Linkedin
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="grid__column-2-4">
-                        <h3 class="footer__heading">Vào cửa hàng trên ứng dụng</h3>
-                        <div class="footer__dowload">                       
-                            <img src="{{('public/frontend/img/qr_code.png')}}" alt="Download QR" class="footer__download-qr">
-                            <div class="footer__download-apps">
-                                <a href="" class="footer__dowload-app-link">                               
-                                    <img src="{{('public/frontend/img/google_play.png')}}" alt="Google play" class="footer__dowload-app-img">
-                                </a>
-                                <a href="" class="footer__dowload-app-link">                               
-                                    <img src="{{('public/frontend/img/app_store.png')}}" alt="App store" class="footer__dowload-app-img">
-                                </a>
-                            </div>
-                        </div>
-                    </div>  
-                </div>
-            </div>
-            <div class="footer__bottom">
-                <div class="grid" >
-                    <p class="footer__text">© 2022 - Bản quyền thuộc về Công ty TNHH JustBook</p>
-                </div>
-            </div>
-        </footer>
     </div>
-</body>
-</html>
+                                
