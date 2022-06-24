@@ -23,5 +23,31 @@ class BookController extends Controller
 
  
     }
+
+    public function returnAllBook(){
+        
+        $sach = DB::select("SELECT * FROM sach");
+
+        return view('pages.book')->withDetails($sach);
+    }
+
+    public function returnBestSellingBook(){
+        
+        $sach = DB::select("SELECT * FROM sach WHERE DanhMuc = 'Bán chạy' ORDER BY MaSach ASC");
+
+        return view('pages.book')->withDetails($sach);
+    }
+
+    public function returnFeatureBook(){
+        
+        $sach = DB::select("SELECT * FROM sach WHERE DanhMuc = 'Nổi bật' ORDER BY MaSach ASC");
+
+        return view('pages.book')->withDetails($sach);
+    }
+
+    public function returnDetailBook(){
+        
+    }
+
     
 }
