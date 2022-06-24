@@ -4,10 +4,10 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>JustBook</title>
-    <link rel="stylesheet" href="{{asset('public/frontend/css/style.css')}}">
-    <link rel="stylesheet" href="{{asset('public/frontend/css/base.css')}}">
-    <link rel="stylesheet" href="{{asset('public/frontend/css/main.css')}}">
+    <title>Findbook</title>
+    <link rel="stylesheet" href="{{asset('public/User/css/style.css')}}">
+    <link rel="stylesheet" href="{{asset('public/User/css/base.css')}}">
+    <link rel="stylesheet" href="{{asset('public/User/css/main.css')}}">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.1/css/all.css" integrity="sha384-O8whS3fhG2OnA5Kas0Y9l3cfpmYjapjI0E4theH4iuMD+pLhbf6JI0jIMfYcK3yZ" crossorigin="anonymous">
 
@@ -35,14 +35,14 @@
                              </h3>
              
                              <ul class="category-list">
-                                 <li class="category-item category-item--active">
-                                     <a href="Book.php" class="category-item__link">Tất cả sản phẩm</a>
+                                 <li class="category-item">
+                                     <a href="{{url('/book')}}" class="category-item__link">Tất cả sản phẩm</a>
                                  </li>
                                  <li class="category-item">
-                                     <a href="BestSellingBook.php" class="category-item__link">Sản phẩm bán chạy</a>
+                                     <a href="{{url('/bestsellingbook')}}" class="category-item__link">Sản phẩm bán chạy</a>
                                  </li>
                                  <li class="category-item">
-                                     <a href="FeaturedBook.php" class="category-item__link">Sản phẩm nổi bật</a>
+                                     <a href="{{url('/featurebook')}}" class="category-item__link">Sản phẩm nổi bật</a>
                                  </li>
                              </ul>
                          </nav>
@@ -51,10 +51,9 @@
                      <div class="grid__column-10">
                          <div class="home-filter">
                              <span class="home-filter__label">Sắp xếp theo</span>
-                             <button class="home-filter__btn btn">Phổ biến</button>
-                             <button class="home-filter__btn btn btn--primary">Mới nhất</button>
-                             <button class="home-filter__btn btn">Bán chạy</button>
- 
+                             <form action="{{url('/featurebook')}}"><button class="home-filter__btn btn">Mới nhất</button></form>    
+                             <form action="{{url('/featurebook')}}"><button class="home-filter__btn btn">Phổ biến</button></form>    
+                             <form action="{{url('/bestsellingbook')}}"><button class="home-filter__btn btn">Bán chạy</button></form>                           
                              <div class="select-input">
                                  <span class="select-input__label">Giá</span>
                                  <i class="select-input__icon fas fa-angle-down"></i>
@@ -87,35 +86,54 @@
                                  </div>
                              </div>
                          </div>                     
-                        <div class="home-product">
-                            <div>
-                                @if(isset($details))
-                                <table class ="table table-stripped">
-                                    <thead>
-                                        <tr>
-                                            <th>Ảnh</th>                                         
-                                            <th>Tên</th>
-                                            <th>Danh Mục</th>
-                                            <th>Đơn Giá</th>
-                                            <th>Mô Tả</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        @foreach($details as $sach)
-                                        <tr>
-                                            <td><img class="home-product-item__img" src="public/User/img/{{$sach->HinhAnh}}" style="margin-left: 20px;" width="150px"></td>                                   
-                                            <td>{{$sach->TenSach}}</td>
-                                            <td>{{$sach->DanhMuc}}</td>                                            
-                                            <td>{{$sach->DonGia}}</td>                                    
-                                            <td>{{$sach->MoTa}}</td>                                                                 
-                                        </tr>
-                                        @endforeach
-                                    </tbody>
-                                </table>
+                        <div>
+                            @if(isset($details))
+                                    <div class="grid__row">  
+                                        @foreach($details as $sach)                                      
+                                        <div class="grid__column-2-4">
+                                               
+                                        <form method="post" action="" class="home-product-item">
+                                            <a class="home-product-item" href="public/resources/views/pages/bookDetail.blade.php?MaSach="{{$sach->MaSach}}>
+                                                <img class="home-product-item__img" src="public/User/img/{{$sach->HinhAnh}}" style="margin-left: 20px;" width="150px">
+                                                <h4 class="home-product-item__name">{{$sach->TenSach}}</h4>
+                                                <div class="home-product-item__price">
+                                                    
+                                                    <span class="home-product-item__price-current">{{$sach->DonGia}}VNĐ</span>
 
+                                                    <input type="hidden" name="hidden_name" value="{{$sach->TenSach}}" />
 
+                                                    <input type="hidden" name="hidden_price" value="{{$sach->DonGia}}" />
+                                                </div>
+                                                <div class="home-product-item__action">
+                                                    <span class="home-product-item__link home-product-item__link--linked">
+                                                        <i class="home-product-item__link-icon-empty far fa-heart"></i>
+                                                        <i class="home-product-item__link-icon-fill fas fa-heart"></i>
+                                                    </span>
+                                                    <div class="home-product-item__rating">
+                                                        <i class="home-product-item__star--gold fas fa-star"></i>
+                                                        <i class="home-product-item__star--gold fas fa-star"></i>
+                                                        <i class="home-product-item__star--gold fas fa-star"></i>
+                                                        <i class="home-product-item__star--gold fas fa-star"></i>
+                                                        <i class="fas fa-star"></i>
+                                                    </div>
+                                                </div>
+                                                <div class="home-product-item__origin">
+                                                    <span class="home-product-item__brand">NXB</span>
+                                                    <span class="home-product-item__origin-name">Nhật Bản</span>
+                                                </div>
+                                                <div class="home-product-item__favourite">
+                                                    <i class="fas fa-check"></i>
+                                                    <span>Yêu thích</span>
+                                                </div>
+                                            </a>
+                                                 
+                                        </form>
+                                         
+                                        </div> 
+                                        @endforeach                                   
+                                    </div>               
                                 @endif
-                            </div>
+                        </div>
                         
                             <ul class="pagination home-product__pagination">
                                 <li class="pagination-item">

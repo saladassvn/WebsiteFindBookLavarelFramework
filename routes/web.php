@@ -18,4 +18,9 @@ use App\Http\Controllers\BookController;
 Route::get('/', [HomeController::class, 'index']);
 Route::get('/homepage', [HomeController::class, 'index']);
 
+Route::get('/bestsellingbook', [BookController::class, 'returnBestSellingBook']);
+Route::get('/featurebook', [BookController::class, 'returnFeatureBook']);
+Route::get('/book', [BookController::class, 'returnAllBook']);
 Route::get('/search', [BookController::class, 'search']);
+
+Route::get('/bookdetail', [BookController::class, 'search']);
