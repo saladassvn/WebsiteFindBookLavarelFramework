@@ -51,7 +51,7 @@
                      <div class="grid__column-10">
                          <div class="home-filter">
                              <span class="home-filter__label">Sắp xếp theo</span>
-                             <form action="{{url('/featurebook')}}"><button class="home-filter__btn btn">Mới nhất</button></form>    
+                             <form action="{{url('/newbook')}}"><button class="home-filter__btn btn">Mới nhất</button></form>    
                              <form action="{{url('/featurebook')}}"><button class="home-filter__btn btn">Phổ biến</button></form>    
                              <form action="{{url('/bestsellingbook')}}"><button class="home-filter__btn btn">Bán chạy</button></form>                           
                              <div class="select-input">
@@ -61,10 +61,10 @@
                                  
                                  <ul class="select-input__list">
                                      <li class="select-input__item">
-                                         <a href="" class="select-input__link">Giá: Thấp đến cao</a>
+                                         <a href="{{url('/cheaptohigh')}}" class="select-input__link">Giá: Thấp đến cao</a>
                                      </li>
                                      <li class="select-input__item">
-                                         <a href="" class="select-input__link">Giá: Cao đến thấp</a>
+                                         <a href="{{url('/hightocheap')}}" class="select-input__link">Giá: Cao đến thấp</a>
                                      </li> 
                                  </ul>
                              </div>
@@ -93,7 +93,7 @@
                                         <div class="grid__column-2-4">
                                                
                                         <form method="post" action="" class="home-product-item">
-                                            <a class="home-product-item" href="public/resources/views/pages/bookDetail.blade.php?MaSach="{{$sach->MaSach}}>
+                                            <a class="home-product-item" href="{{url('/'.$sach->MaSach)}}">
                                                 <img class="home-product-item__img" src="public/User/img/{{$sach->HinhAnh}}" style="margin-left: 20px;" width="150px">
                                                 <h4 class="home-product-item__name">{{$sach->TenSach}}</h4>
                                                 <div class="home-product-item__price">

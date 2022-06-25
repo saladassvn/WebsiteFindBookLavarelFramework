@@ -20,7 +20,10 @@ Route::get('/homepage', [HomeController::class, 'index']);
 
 Route::get('/bestsellingbook', [BookController::class, 'returnBestSellingBook']);
 Route::get('/featurebook', [BookController::class, 'returnFeatureBook']);
+Route::get('/newbook', [BookController::class, 'returnNewestBook']);
 Route::get('/book', [BookController::class, 'returnAllBook']);
 Route::get('/search', [BookController::class, 'search']);
+Route::get('/cheaptohigh', [BookController::class, 'returnCheapToHigh']);
+Route::get('/hightocheap', [BookController::class, 'returnHighToCheap']);
 
-Route::get('/bookdetail', [BookController::class, 'search']);
+Route::get('/{MaSach}', [BookController::class, 'returnDetailBook']);
