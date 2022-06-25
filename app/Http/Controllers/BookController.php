@@ -45,7 +45,31 @@ class BookController extends Controller
         return view('pages.book')->withDetails($sach);
     }
 
-    public function returnDetailBook(){
+    public function returnNewestBook(){
+        
+        $sach = DB::select("SELECT * FROM sach ORDER BY MaSach DESC");
+
+        return view('pages.book')->withDetails($sach);
+    }
+
+    public function returnCheapToHigh(){
+        
+        $sach = DB::select("SELECT * FROM sach ORDER BY DonGia ASC");
+
+        return view('pages.book')->withDetails($sach);
+    }
+
+    public function returnHighToCheap(){
+        
+        $sach = DB::select("SELECT * FROM sach ORDER BY DonGia DESC");
+
+        return view('pages.book')->withDetails($sach);
+    }
+
+    public function returnDetailBook($MaSach){
+        $sach = DB::select("SELECT * FROM sach WHERE MaSach = '$MaSach'");
+
+        return view('pages.bookDetail')->withDetails($sach);
         
     }
 

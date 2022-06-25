@@ -11,13 +11,13 @@
 
                             <!-- Begin:dau QR Code -->
                             <div class="dau__qr">                           
-                                <img src="{{('public/frontend/img/qr_code.png')}}" alt="QR code" class="dau__qr-img">
+                                <img src="{{('public/User/img/qr_code.png')}}" alt="QR code" class="dau__qr-img">
                                 <div class="dau__qr-apps">
                                     <a href="" class="dau__qr-link">                                   
-                                        <img src="{{('public/frontend/img/google_play.png')}}" alt="Google Play" class="dau__qr-download-img">
+                                        <img src="{{('public/User/img/google_play.png')}}" alt="Google Play" class="dau__qr-download-img">
                                     </a>
                                     <a href="" class="dau__qr-link">                                  
-                                        <img src="{{('public/frontend/img/app_store.png')}}" alt="App Store" class="dau__qr-download-img">
+                                        <img src="{{('public/User/img/app_store.png')}}" alt="App Store" class="dau__qr-download-img">
                                     </a>
                                 </div>
                             </div>
@@ -142,7 +142,7 @@
                                 <input type="text" name="query" class="dau__search-input" placeholder="Nhập tên sách để tìm kiếm">
                             </div>
                             <div class="dau__search-select"> 
-                                <a href="Book.php" class="dau__search-select-label">FIND BOOK</a>
+                                <a href="{{url('/newbook')}}" class="dau__search-select-label">FIND BOOK</a>
                                 <i class="dau__search-select-icon fas fa-book"></i>
                             </div>
                             <button class="dau__search-btn">
