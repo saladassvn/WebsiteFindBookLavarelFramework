@@ -18,6 +18,12 @@ use App\Http\Controllers\BookController;
 Route::get('/', [HomeController::class, 'index']);
 Route::get('/homepage', [HomeController::class, 'index']);
 
+Route::get('/login', [HomeController::class, 'login']);
+Route::get('/register', [HomeController::class, 'register']);
+
+Route::get('/store', [HomeController::class, 'store']);
+
+
 Route::get('/bestsellingbook', [BookController::class, 'returnBestSellingBook']);
 Route::get('/featurebook', [BookController::class, 'returnFeatureBook']);
 Route::get('/newbook', [BookController::class, 'returnNewestBook']);

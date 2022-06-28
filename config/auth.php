@@ -61,8 +61,10 @@ return [
 
     'providers' => [
         'users' => [
-            'driver' => 'eloquent',
-            'model' => App\Models\User::class,
+            //'driver' => 'eloquent',
+            'driver' => 'database',
+            //'model' => App\Models\User::class,
+            'table' => 'taikhoan'
         ],
 
         // 'users' => [
