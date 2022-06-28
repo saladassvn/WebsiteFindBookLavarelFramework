@@ -51,7 +51,7 @@
                                             <img src="{{('public/frontend/img/CleanCode.png')}}" alt="" class="dau__notify-img">
                                             <div class="dau__notify-info">
                                                 <span class="dau__notify-name">Bạn đã đặt Clean Code</span>
-                                                <span class="dau__notify-descriotion">Sách bán chạy nhất của ShopIT</span>
+                                                <span class="dau__notify-descriotion">Sách bán chạy nhất của Findbook</span>
 
                                             </div>
                                         </a>
@@ -63,7 +63,7 @@
                                             <img src="{{('public/frontend/img/the_clean_coder.jpg')}}" alt="" class="dau__notify-img">
                                             <div class="dau__notify-info">
                                                 <span class="dau__notify-name">Bạn đã đặt The Clean Code</span>
-                                                <span class="dau__notify-descriotion">Sách bán chạy nhất của ShopIT</span>
+                                                <span class="dau__notify-descriotion">Sách bán chạy nhất của Findbook</span>
 
                                             </div>
                                         </a>
@@ -75,7 +75,7 @@
                                             <img src="{{('public/frontend/img/CodeComplete2.jpg')}}" alt="" class="dau__notify-img">
                                             <div class="dau__notify-info">
                                                 <span class="dau__notify-name">Bạn đã đặt Code Complete 2</span>
-                                                <span class="dau__notify-descriotion">Sách bán chạy nhất của ShopIT</span>
+                                                <span class="dau__notify-descriotion">Sách bán chạy nhất của Findbook</span>
 
                                             </div>
                                         </a>
@@ -92,39 +92,13 @@
                                 Trợ giúp
                             </a></li>
                             <li class="dau__navbar-item dau__navbar-user">
-                                <?php
-                                    
-                                    if(isset($_SESSION['user'])){
-                                ?>
-                                    
-                                        
-                                <span class="dau__navbar-user-name"><?php echo "".$_SESSION['user']['user_name']."";?></span>
 
-                                <ul class="dau__navbar-user-menu">
-                                    <?php
-                                        echo'<li class="dau__navbar-user-item">
-                                            <a href="UserInfo.php?=MaKH='.$_SESSION['user']['user_id'].'">Tài khoản của tôi</a>
-                                            </li>';
-                                    ?>
-                                    <?php
-                                        echo'<li class="dau__navbar-user-item">
-                                                <a href="ViewOrder.php?TenKH='.$_SESSION['user']['user_name'].'">Xem đơn hàng</a>
-                                            </li>';
-                                    ?>
-                                    
-                                    <li class="dau__navbar-user-item dau__navbar-user-item--separate">
-                                        <?php echo '<a href="Logout.php">Đăng xuất</a>';?>
-                                    </li>
-                                    <?php
-                                    }else{
-                                        echo '<li class="dau__navbar-user-item dau__navbar-user-item--separate  ;">
-                                                <a href="login.php" style="background-color: aquamarine;">Login User</a>
+                                        <li class="dau__navbar-user-item dau__navbar-user-item--separate  ;">
+                                                <a href="{{(URL::to('/login'))}}" style="background-color: #4CAF50; color: white;">Login User</a>
                                             </li>;
                                             <li class="dau__navbar-user-item dau__navbar-user-item--separate  ;">
-                                                <a href="../admin/loginadmin.php" style="background-color: aquamarine;">Login Admin</a>
-                                            </li>';
-                                    }
-                                ?>
+                                                <a href="../admin/loginadmin.php" style="background-color: #4CAF50; color: white;">Login Admin</a>
+                                            </li>
                                 </ul>
                             </li>
                     </ul>
