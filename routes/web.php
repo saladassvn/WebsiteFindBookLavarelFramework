@@ -19,6 +19,7 @@ Route::get('/', [HomeController::class, 'index']);
 Route::get('/homepage', [HomeController::class, 'index']);
 
 Route::get('/login', [HomeController::class, 'login']);
+Route::get('/logout', [HomeController::class, 'logout']);
 Route::get('/register', [HomeController::class, 'register']);
 
 Route::get('/store', [HomeController::class, 'store']);

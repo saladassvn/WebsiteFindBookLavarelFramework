@@ -6,7 +6,7 @@
     <title>Register</title>
 </head>
 <body>
-    <form action="Register.php" method="post">
+    <form action="Register.php" method="post" >
         <div class="register">
             <h1 style= "text-align: center;">Đăng ký</h1>
             <p style= "text-align: center;">Vui lòng điền thông tin để đăng ký</p>
@@ -19,6 +19,8 @@
                 <input type="text" placeholder="Họ và tên đầy đủ" name="username" id="username">
                 <label for="sdt"><b>Số điện thoại</b></label>
                 <input type="text" placeholder="Nhập số điện thoại" name="sdt" id="sdt">
+                <label for="diachi"><b>Địa chỉ</b></label>
+                <input type="text" placeholder="Nhập địa chỉ" name="diachi" id="diachi">
                 
             <hr>
             <p>Để tạo tài khoản vui lòng đồng ý với điều khoản của chúng tôi</p>
