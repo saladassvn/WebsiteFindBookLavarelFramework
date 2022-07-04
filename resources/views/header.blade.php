@@ -91,16 +91,29 @@
                                 <i class="dau__navbar-icon far fa-question-circle"></i>
                                 Trợ giúp
                             </a></li>
-                            <li class="dau__navbar-item dau__navbar-user">
+                            @if(Session::has('userName'))
 
-                                        <li class="dau__navbar-user-item dau__navbar-user-item--separate  ;">
-                                                <a href="{{(URL::to('/login'))}}" style="background-color: #4CAF50; color: white;">Login User</a>
-                                            </li>;
-                                            <li class="dau__navbar-user-item dau__navbar-user-item--separate  ;">
-                                                <a href="../admin/loginadmin.php" style="background-color: #4CAF50; color: white;">Login Admin</a>
-                                            </li>
-                                </ul>
+                            <li class="dau__navbar-user-item">
+                            <a href="UserInfo.php?=MaKH='.$_SESSION['user']['user_id'].'">{{Session::get('userName')}}</a>
                             </li>
+                            <li class="dau__navbar-user-item">
+                                <a href="ViewOrder.php?TenKH='.$_SESSION['user']['user_name'].'">Xem đơn hàng</a>
+                            </li>
+                            <li class="dau__navbar-user-item dau__navbar-user-item--separate">
+                            <a href="{{(URL::to('/logout'))}}">Đăng xuất</a>
+                            </li>
+                            @else
+                            <li class="dau__navbar-item dau__navbar-user">
+                            <li class="dau__navbar-user-item dau__navbar-user-item--separate  ;">
+                             <a href="{{(URL::to('/login'))}}" style="background-color: #4CAF50; color: white;">Login User</a>
+                             </li>;
+                            <li class="dau__navbar-user-item dau__navbar-user-item--separate  ;">
+                             <a href="../admin/loginadmin.php" style="background-color: #4CAF50; color: white;">Login Admin</a>
+                             </li>
+                            </ul>
+                            </li>
+                            @endif
+                            
                     </ul>
                 </nav>
 
