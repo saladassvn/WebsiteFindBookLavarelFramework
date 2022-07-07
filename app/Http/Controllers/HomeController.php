@@ -40,10 +40,12 @@ class HomeController extends Controller
 
         $user = DB::table('taikhoan')->where('email', $request->input('email'))->get();
 
-        if(($user[0]->MatKhau)==$request->input('password')){
-            $request->session()->put('userName', $user[0]->TenKH);
-            $request->session()->put('userID', $user[0]->MaKH);
-            return redirect('/');
+        if(count($user) != 0){
+            if(($user[0]->MatKhau)==$request->input('password')){
+                $request->session()->put('userName', $user[0]->TenKH);
+                $request->session()->put('userID', $user[0]->MaKH);
+                return redirect('/');
+            }  
         }
 
         Session::flash('error', 'Email hoặc Password không đúng');
@@ -51,11 +53,35 @@ class HomeController extends Controller
     }
 
     public function storeRe(Request $r){
-        $email = $r->email;
-        $password = $r->pasword;
-        $username = $r->username;
-        $sdt = $r->sdt;
-        $diachi = $r->diachi;
+        $this->validate($r, [
+            'email' => 'required|email:filter',
+            'password' => 'required',
+            'username' => 'required',
+            'sdt' => 'required',
+            'diachi' => 'required',
+
+        ]);
+        
+        $user = DB::table('taikhoan')->where('email', $r->input('email'))->first();
+        
+        if($user === null){
+            $email = $r->email;
+            $password = $r->password;
+            $username = $r->username;
+            $sdt = $r->sdt;
+            $diachi = $r->diachi;
+
+            DB::table('taikhoan')->insert(
+                ['Email' => $email, 'MatKhau' => $password, 'Phone' => $sdt, 'DiaChi' => $diachi, 'TenKH' => $username,]
+            );
+
+
+            return view('pages.login');
+        }
+   
+        Session::flash('error', 'Email đã tồn tại trong hệ thống');
+        return redirect()->back();
+        
 
 
     }
