@@ -1,0 +1,54 @@
+.main{
+    margin-top: 40px;
+    width: 80%;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.row{
+   
+}
+
+.col{
+    width: 50%;
+
+}
+
+.main .book_img{
+    width: 400px;
+    justify-content: center;
+}
+
+.main .heding{
+    font-size :34px;
+    line-height: 34px;
+}
+
+.main .gia{
+    font-size :40px;
+    color: rgb(206, 53, 53);
+    line-height:70px;
+
+}
+.btthemvaogiohang {
+    border: none;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    background-color: rgba(208,1,27,.08);
+    border-color: #d0011b;
+    color: #d0011b;
+  }
+  .btmuahang{
+    border: none;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    background-color: rgba(255, 0, 34, 0.877);
+    border-color: #d0011b;
+    color: #ffffff;
+  }

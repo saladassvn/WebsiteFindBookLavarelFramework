@@ -1,0 +1,13 @@
+.detail{
+    display: block;
+    height: 450px;
+}
+
+.detail_in{
+    margin-top: 20px;
+}
+
+.form-group .sl_ip{
+    display: inline-block;
+    width: 40px !important;
+}
