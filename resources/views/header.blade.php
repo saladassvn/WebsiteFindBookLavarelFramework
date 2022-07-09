@@ -94,7 +94,7 @@
                             @if(Session::has('userName'))
 
                             <li class="dau__navbar-user-item">
-                            <a href="UserInfo.php?=MaKH='.$_SESSION['user']['user_id'].'">{{Session::get('userName')}}</a>
+                            <a href="{{(URL::to('/user'))}}">{{Session::get('userName')}}</a>
                             </li>
                             <li class="dau__navbar-user-item">
                                 <a href="ViewOrder.php?TenKH='.$_SESSION['user']['user_name'].'">Xem đơn hàng</a>

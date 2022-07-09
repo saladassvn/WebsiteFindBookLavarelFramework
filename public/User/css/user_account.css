@@ -102,6 +102,11 @@
     font-weight: bold;
 }
 
+
+.center_user{
+    text-align: center;
+}
+
 .user-account {
     background-color: #FFF;
     width: auto;
@@ -116,3 +121,7 @@
 .qlsp{
     padding-top: 20px;
 }
+
+
+
+

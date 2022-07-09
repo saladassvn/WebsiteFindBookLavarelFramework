@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\BookController;
+use App\Http\Controllers\UserController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -24,6 +25,8 @@ Route::get('/register', [HomeController::class, 'register']);
 
 Route::get('/store', [HomeController::class, 'store']);
 Route::get('/storeRe', [HomeController::class, 'storeRe']);
+
+Route::get('/user', [UserController::class, 'index']);
 
 
 Route::get('/bestsellingbook', [BookController::class, 'returnBestSellingBook']);
