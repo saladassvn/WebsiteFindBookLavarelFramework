@@ -130,7 +130,7 @@
                                     style="background-color: #4CAF50; color: white;">Login User</a>
                             </li>;
                             <li class="dau__navbar-user-item dau__navbar-user-item--separate  ;">
-                                <a href="../admin/loginadmin.php"
+                                <a href="{{ URL::to('admin/login') }}"
                                     style="background-color: #4CAF50; color: white;">Login Admin</a>
                             </li>
                     </ul>

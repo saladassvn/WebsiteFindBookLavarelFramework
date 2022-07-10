@@ -57,10 +57,6 @@
             <hr>
             <input type="submit" name="dangnhap" id="" class="submit" value="Đăng nhập">
         </div>
-        <div class="register login">
-            <p>Đăng ký tài khoản mới tại đây <a href="RegisterAdmin.php">Đăng ký</a>.</p>
-        </div>
     </form>
-    @include('footer')
 </body>
 </html>

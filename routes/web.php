@@ -51,7 +51,7 @@ Route::get('admin/IndexAdmin', [IndexAdminController::class, 'show']);
 //Xóa
 Route::get('admin/delete/{MaSach}', [IndexAdminController::class, 'delete']);
 //Sửa
-Route::get('admin/edit/{MaSach}', [IndexAdminController::class, 'showData']);
+Route::get('admin/edit', [IndexAdminController::class, 'showData']);
 Route::post('admin/edit', [IndexAdminController::class, 'update']);
 //Thêm
 Route::view('admin/create', 'adminpages\CreateProducts');
