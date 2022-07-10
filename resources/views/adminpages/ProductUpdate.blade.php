@@ -14,71 +14,58 @@
     <link rel="stylesheet" href="../resources/css/ThongTin_AD.css" />
     <link rel="stylesheet" href="../resources/css/user_order_history.css" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.1/css/all.css" integrity="sha384-O8whS3fhG2OnA5Kas0Y9l3cfpmYjapjI0E4theH4iuMD+pLhbf6JI0jIMfYcK3yZ" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.1/css/all.css"
+        integrity="sha384-O8whS3fhG2OnA5Kas0Y9l3cfpmYjapjI0E4theH4iuMD+pLhbf6JI0jIMfYcK3yZ" crossorigin="anonymous">
 
 </head>
+
 <body>
     @include('header')
     @include('sidebarAdmin')
-    <div class="page-admin">
-        <div class="sidebar-admin">
-            <div class="sidebar-title">DANH SÁCH CHỨC NĂNG</div>
-            <br><br>
-            <a class="sidebar-item" href="CreateProducts.php">
-                <span class="fas fa-tags" class="sidebar-item-title"style="color: #1c1c1d">Tạo sản phẩm</span>
-            </a>
-            <a class="sidebar-item" href="IndexAdmin.php">
-                <span class="fa fa-address-book" class="sidebar-item-title" style="color: #1c1c1d">Quản lý sản
-                    phẩm</span>
-            </a>
-            <a class="sidebar-item" href="OrderManagement.php">
-                <span class="fas fa-tasks" class="sidebar-item-title"style="color: #1c1c1d">Quản lý đặt hàng</span>
-            </a>
-        </div>
 
-        <div class="content-user">
-            <div class="admin-title-account" style="font-size: 18px; padding: 0;">Cập nhật sản phẩm</div>
-            <div class="user-table" style="width: 100%;">
-                <form action="/admin/edit" method="POST" enctype="multipart/form-data">
-                    @csrf
-                    <input type="hidden" class="from__input" name="MaSach" value="{{ $sach['MaSach'] }}" />
-                    <div class="from_row">
-                        <label class="input__label" style="margin-right: 50px;">Tên sản phẩm</label>
-                        <input type="text" class="from__input" name="TenSach" value="{{ $sach['TenSach'] }}"
-                            style="width: 300px;" size="38" />
-                    </div>
-                    <div class="from_row">
-                        <label class="input__label" style="margin-right: 50px;">Danh Mục</label>
-                        <input type="text" class="from__input" name="DanhMuc" value="{{ $sach['DanhMuc'] }}"
-                            style="width: 300px;" size="38">
-                    </div>
-                    <div class="from_row">
-                        <label class="input__label" style="margin-right: 50px;">Mô tả</label>
-                        <textarea class="from__input" rows="10" name="MoTa" style="width: 300px;" size="38"
-                            value="{{ $sach['MoTa'] }}"></textarea>
-                    </div>
-                    <div class="from_row">
-                        <label class="input__label" style="margin-right: 50px;">Hình ảnh</label>
-                        <input type="file" class="from__input" style="width: 300px;" size="38"
-                            value="{{ $sach['HinhAnh'] }}">
-                    </div>
-                    <div class="from_row">
-                        <label class="input__label">&nbsp;</label>
-                        <img src="../img/{{ $sach['HinhAnh'] }}" name="HinhAnh" height="100" width="100">
-                    </div>
-                    <div class="from_row">
-                        <label class="input__label" style="margin-right: 50px;">Giá</label>
-                        <input type="text" class="from__input" name="DonGia" value="{{ $sach['DonGia'] }}"
-                            style="width: 300px;" size="38">
-                    </div>
-                    <div class="from_row">
-                        <label class="input__label">&nbsp;</label>
-                        <input type="submit" style="text-align: center;" name="capnhatsanpham" value="Cập nhật"
-                            class="btn__submit">
-                    </div>
-                </form>
-            </div>
+    <div class="content-user">
+        <div class="admin-title-account" style="font-size: 18px; padding: 0;">Cập nhật sản phẩm</div>
+        <div class="user-table" style="width: 100%;">
+            <form action="/admin/edit" method="POST" enctype="multipart/form-data">
+                @csrf
+                <input type="hidden" class="from__input" name="MaSach" value="{{ $sach['MaSach'] }}" />
+                <div class="from_row">
+                    <label class="input__label" style="margin-right: 50px;">Tên sản phẩm</label>
+                    <input type="text" class="from__input" name="TenSach" value="{{ $sach['TenSach'] }}"
+                        style="width: 300px;" size="38" />
+                </div>
+                <div class="from_row">
+                    <label class="input__label" style="margin-right: 50px;">Danh Mục</label>
+                    <input type="text" class="from__input" name="DanhMuc" value="{{ $sach['DanhMuc'] }}"
+                        style="width: 300px;" size="38">
+                </div>
+                <div class="from_row">
+                    <label class="input__label" style="margin-right: 50px;">Mô tả</label>
+                    <textarea class="from__input" rows="10" name="MoTa" style="width: 300px;" size="38"
+                        value="{{ $sach['MoTa'] }}"></textarea>
+                </div>
+                <div class="from_row">
+                    <label class="input__label" style="margin-right: 50px;">Hình ảnh</label>
+                    <input type="file" class="from__input" style="width: 300px;" size="38"
+                        value="{{ $sach['HinhAnh'] }}">
+                </div>
+                <div class="from_row">
+                    <label class="input__label">&nbsp;</label>
+                    <img src=../public/User/img/{{ $sach['HinhAnh'] }} name="HinhAnh" height="100" width="100">
+                </div>
+                <div class="from_row">
+                    <label class="input__label" style="margin-right: 50px;">Giá</label>
+                    <input type="text" class="from__input" name="DonGia" value="{{ $sach['DonGia'] }}"
+                        style="width: 300px;" size="38">
+                </div>
+                <div class="from_row">
+                    <label class="input__label">&nbsp;</label>
+                    <input type="submit" style="text-align: center;" name="capnhatsanpham" value="Cập nhật"
+                        class="btn__submit">
+                </div>
+            </form>
         </div>
+    </div>
 
     </div>
 

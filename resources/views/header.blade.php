@@ -21,14 +21,14 @@
                             Cửa hàng bán sách hàng đầu Findbook
                             <!-- Begin:dau QR Code -->
                             <div class="dau__qr">
-                                <img src="{{ 'public/User/img/qr_code.png' }}" alt="QR code" class="dau__qr-img">
+                                <img src="{{ '../public/User/img/qr_code.png' }}" alt="QR code" class="dau__qr-img">
                                 <div class="dau__qr-apps">
                                     <a href="" class="dau__qr-link">
-                                        <img src="{{ 'public/User/img/google_play.png' }}" alt="Google Play"
+                                        <img src="{{ '../public/User/img/google_play.png' }}" alt="Google Play"
                                             class="dau__qr-download-img">
                                     </a>
                                     <a href="" class="dau__qr-link">
-                                        <img src="{{ 'public/User/img/app_store.png' }}" alt="App Store"
+                                        <img src="{{ '../public/User/img/app_store.png' }}" alt="App Store"
                                             class="dau__qr-download-img">
                                     </a>
                                 </div>
@@ -113,7 +113,6 @@
                             </a>
                         </li>
                         @if (Session::has('userName'))
-
                             <li class="dau__navbar-user-item">
                                 <a href="{{ URL::to('/user') }}">{{ Session::get('userName') }}</a>
                             </li>
@@ -122,6 +121,10 @@
                             </li>
                             <li class="dau__navbar-user-item dau__navbar-user-item--separate">
                                 <a href="{{ URL::to('/logout') }}">Đăng xuất</a>
+                            </li>
+                        @elseif(Session::has('AdminName'))
+                             <li class="dau__navbar-user-item dau__navbar-user-item--separate">
+                                <a href="{{ URL::to('admin/logout') }}">Đăng xuất</a>
                             </li>
                         @else
                             <li class="dau__navbar-item dau__navbar-user">
@@ -133,10 +136,9 @@
                                 <a href="{{ URL::to('admin/login') }}"
                                     style="background-color: #4CAF50; color: white;">Login Admin</a>
                             </li>
+                        @endif
                     </ul>
                     </li>
-                    @endif
-
                     </ul>
                 </nav>
 

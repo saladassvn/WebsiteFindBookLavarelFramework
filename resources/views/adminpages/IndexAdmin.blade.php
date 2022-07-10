@@ -44,7 +44,7 @@ if (!isset($_SESSION['admin'])) {
                         <td>{{ $sachs['TenSach'] }}</td>
                         <td>{{ $sachs['DanhMuc'] }}</td>
                         <td>{{ $sachs['MoTa'] }}</td>
-                        <td><img src="../img/{{ $sachs['HinhAnh'] }}" height="100" width="80"></td>
+                        <td><img src=../public/User/img/{{ $sachs['HinhAnh']}} height="100" width="80"></td>
                         <td>{{ $sachs['DonGia'] }}</td>
                         <td>
                             <a href={{ 'edit/' . $sachs['MaSach'] }} class="btn-ED-add">

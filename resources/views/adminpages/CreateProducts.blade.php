@@ -31,7 +31,7 @@ if (!isset($_SESSION['admin'])) {
             <div class="admin-title-account" style="font-size: 18px; padding: 0;">Thêm sản phẩm</div>
             <div class="user-table" style="width: 100%;">
                 <form action="" method="POST" enctype="multipart/form-data">
-                    @csrf
+                    {{ csrf_field() }}
                     <div class="from_row">
                         <label class="input__label" style="margin-right: 50px;">Tên sản phẩm</label>
                         <input type="text" class="from__input" name="TenSach" placeholder="Tên sách"

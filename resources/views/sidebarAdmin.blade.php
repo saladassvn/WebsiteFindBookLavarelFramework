@@ -23,7 +23,7 @@
                 <span class="fa fa-address-book" class="sidebar-item-title" style="color: #1c1c1d">Quản lý sản
                     phẩm</span>
             </a>
-            <a class="sidebar-item" href="OrderManagement.php">
+            <a class="sidebar-item" href={{ '/admin/OrderManagement' }}>
                 <span class="fas fa-tasks" class="sidebar-item-title"style="color: #1c1c1d">Quản lý đặt hàng</span>
             </a>
         </div>
