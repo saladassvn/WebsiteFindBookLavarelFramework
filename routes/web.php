@@ -29,6 +29,7 @@ Route::get('/store', [HomeController::class, 'store']);
 Route::get('/storeRe', [HomeController::class, 'storeRe']);
 
 Route::get('/user', [UserController::class, 'index']);
+Route::get('/useredit', [UserController::class, 'edit']);
 
 
 Route::get('/bestsellingbook', [BookController::class, 'returnBestSellingBook']);
