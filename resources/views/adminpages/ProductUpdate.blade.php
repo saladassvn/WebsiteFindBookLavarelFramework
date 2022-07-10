@@ -7,14 +7,14 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="../resources/css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
-    <link rel="stylesheet" href="../resources/css/style.css" />
-    <link rel="stylesheet" href="../resources/css/base.css" />
-    <link rel="stylesheet" href="../resources/css/main.css" />
-    <link rel="stylesheet" href="../resources/css/user_order_history.css" />
-    <link rel="stylesheet" href="../resources/css/ThongTin_AD.css" />
-    <link rel="stylesheet" href="../resources/css/user_order_history.css" />
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.1/css/all.css"
+    <link rel="stylesheet" href="{{asset('resources/css/style.css')}}">
+    <link rel="stylesheet" href="{{asset('resources/css/base.css')}}">
+    <link rel="stylesheet" href="{{asset('resources/css/main.css')}}">
+    <link rel="stylesheet" href="{{asset('resources/css/user_order_history.css')}}">
+    <link rel="stylesheet" href="{{asset('resources/css/ThongTin_AD.css')}}">
+    <link rel="stylesheet" href="{{asset('resources/css/user_order_history.css')}}">
+    <link rel="stylesheet" rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.1/css/all.css"
         integrity="sha384-O8whS3fhG2OnA5Kas0Y9l3cfpmYjapjI0E4theH4iuMD+pLhbf6JI0jIMfYcK3yZ" crossorigin="anonymous">
 
 </head>
