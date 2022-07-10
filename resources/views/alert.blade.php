@@ -17,7 +17,7 @@
 
 
 @if (Session::has('success'))
-    <div class="alert alert-success" style="color:blue;>
+    <div class="alert alert-success" style="color:blue;">
         {{ Session::get('success') }}
     </div>
 @endif

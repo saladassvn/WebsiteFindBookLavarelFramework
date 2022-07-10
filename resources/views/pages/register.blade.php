@@ -6,7 +6,7 @@
     <title>Register</title>
 </head>
 <body>
-    <form action="Register.php" method="post" >
+    <form action="{{url('/storeRe')}}" type="get" >
         <div class="register">
             <h1 style= "text-align: center;">Đăng ký</h1>
             <p style= "text-align: center;">Vui lòng điền thông tin để đăng ký</p>
@@ -23,7 +23,7 @@
                 <input type="text" placeholder="Nhập địa chỉ" name="diachi" id="diachi">
                 
             <hr>
-            <p>Để tạo tài khoản vui lòng đồng ý với điều khoản của chúng tôi</p>
+            @include('alert')
             <input type="submit" name="btn_submit" id="" class="submit" value="Đăng ký">
         </div>
         <div class="register login">

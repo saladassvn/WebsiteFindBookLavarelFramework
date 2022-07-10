@@ -3,10 +3,14 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\BookController;
+<<<<<<< HEAD
 use App\Http\Controllers\LoginAdminController;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\IndexAdminController;
 use App\Models\sach;
+=======
+use App\Http\Controllers\UserController;
+>>>>>>> 3bfea6247e3715fd54c76b3865140f36f08bde2e
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -26,6 +30,9 @@ Route::get('/logout', [HomeController::class, 'logout']);
 Route::get('/register', [HomeController::class, 'register']);
 
 Route::get('/store', [HomeController::class, 'store']);
+Route::get('/storeRe', [HomeController::class, 'storeRe']);
+
+Route::get('/user', [UserController::class, 'index']);
 
 
 Route::get('/bestsellingbook', [BookController::class, 'returnBestSellingBook']);
