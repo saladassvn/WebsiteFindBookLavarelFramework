@@ -32,23 +32,27 @@
             <div class="content-user">
                 <div class="user-account">    
                 @if(isset($details))
-                    <div class="user-title-account">THÔNG TIN TÀI KHOẢN</div>
-                        <form action="" method="post">
-                            <div class="from_row">
-                                <label style="margin-right: 50px; font-size: 15px;">Họ và tên</label>
-                                <input type="text" name="ten" value={{$details->TenKH}}  class = "from__input", size = "38", placeholder = "Họ Tên", style = "width: 300px; font-size: 15px;", required>
+                    <div class="user-title-account">THÔNG TIN TÀI KHOẢN </div>
+                        <form action="{{url('/useredit')}}" type="get">
+                        <div class="from_row">
+                                <label style="margin-right: 50px; font-size: 15px; font-weight: bold;" for="id" >Mã KH</label>
+                                <input type="text" name="id" readonly="readonly" value={{$details->MaKH}} class = "from__input", size = "38" style = "width: 300px; font-size: 15px;", required>
                             </div>
                             <div class="from_row">
-                                <label style="margin-right: 50px; font-size: 15px;" for="email">Email</label>
-                                <input type="email" name="email" value={{$details->Email}} class = "from__input", size = "38", placeholder = "Nhập địa chỉ email của bạn", style = "width: 300px; font-size: 15px;", required>
+                                <label style="margin-right: 50px; font-size: 15px; font-weight: bold;" for="email" >Email</label>
+                                <input type="email" name="email" readonly="readonly"  value= "{{$details->Email}}" class = "from__input", size = "38", placeholder = "Nhập địa chỉ email của bạn", style = "width: 300px; font-size: 15px;", required>
                             </div>
                             <div class="from_row">
-                                <label style="margin-right: 50px; font-size: 15px;" for="sdt">Địa chỉ</label>
-                                <input type="text" name="dc"  value={{$details->DiaChi}} class = "from__input", size = "38", placeholder = "Nhập địa chỉ của bạn", style = "width: 300px; font-size: 15px;", required>
+                                <label style="margin-right: 50px; font-size: 15px; font-weight: bold;">Họ và tên</label>
+                                <input type="text" name="ten" value= "{{$details->TenKH}}"  class = "from__input", size = "38", placeholder = "Họ Tên", style = "width: 300px; font-size: 15px;", required>
                             </div>
                             <div class="from_row">
-                                <label style="margin-right: 50px; font-size: 15px;" for="sdt">Số điện thoại</label>
-                                <input type="text" name="sdt"  value={{$details->Phone}} class = "from__input", size = "38", placeholder = "Hãy nhập SĐT để trải nghiệm tốt hơn", style = "width: 300px; font-size: 15px;", required>
+                                <label style="margin-right: 50px; font-size: 15px; font-weight: bold;" for="sdt">Địa chỉ</label>
+                                <input type="text" name="dc"  value= "{{$details->DiaChi}}" class = "from__input", size = "38", placeholder = "Nhập địa chỉ của bạn", style = "width: 300px; font-size: 15px;", required>
+                            </div>
+                            <div class="from_row">
+                                <label style="margin-right: 50px; font-size: 15px; font-weight: bold;" for="sdt">Số điện thoại</label>
+                                <input type="text" name="sdt"  value= "{{$details->Phone}}" class = "from__input", size = "38", placeholder = "Hãy nhập SĐT để trải nghiệm tốt hơn", style = "width: 300px; font-size: 15px;", required>
             </div>
             <div class="from_row">
                 <label class="input__label">&nbsp;</label>

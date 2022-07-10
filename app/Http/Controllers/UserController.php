@@ -15,7 +15,18 @@ class UserController extends Controller
         return view('pages.user')->withDetails($user[0]);;
     }
 
-    public function update(){
+    public function edit(Request $r){
+
+        $user_name = $r->input('ten');
+        $user_sdt = $r->input('sdt');
+        $user_dc = $r->input('dc');
+        $user_id = $r->input('id');
+
+        DB::update('update taikhoan set TenKH=?,Phone=?,DiaChi=? where MaKH=?',[$user_name,$user_sdt,$user_dc,$user_id]);
+        
+        session()->put('userName', $user_name);
+
+        return redirect('/');
         
     }
 
