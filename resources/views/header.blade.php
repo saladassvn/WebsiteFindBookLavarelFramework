@@ -64,7 +64,8 @@
                                                 class="dau__notify-img">
                                             <div class="dau__notify-info">
                                                 <span class="dau__notify-name">Bạn đã đặt Clean Code</span>
-                                                <span class="dau__notify-descriotion">Sách bán chạy nhất của Findbook</span>
+                                                <span class="dau__notify-descriotion">Sách bán chạy nhất của
+                                                    Findbook</span>
                                             </div>
                                         </a>
                                     </li>
@@ -76,7 +77,8 @@
                                                 class="dau__notify-img">
                                             <div class="dau__notify-info">
                                                 <span class="dau__notify-name">Bạn đã đặt The Clean Code</span>
-                                                <span class="dau__notify-descriotion">Sách bán chạy nhất của Findbook</span>
+                                                <span class="dau__notify-descriotion">Sách bán chạy nhất của
+                                                    Findbook</span>
                                             </div>
                                         </a>
                                     </li>
@@ -88,7 +90,8 @@
                                                 class="dau__notify-img">
                                             <div class="dau__notify-info">
                                                 <span class="dau__notify-name">Bạn đã đặt Code Complete 2</span>
-                                                <span class="dau__notify-descriotion">Sách bán chạy nhất của Findbook</span>
+                                                <span class="dau__notify-descriotion">Sách bán chạy nhất của
+                                                    Findbook</span>
                                             </div>
                                         </a>
                                     </li>
@@ -103,15 +106,16 @@
                                 <i class="dau__navbar-icon far fa-question-circle"></i>
                                 Trợ giúp
                             </a>
+                        <li class="dau__navbar-item">
+                            <a href="" class="dau__navbar-item-link">
+                                <i class="dau__navbar-icon far fa-question-circle"></i>
+                                Trợ giúp
+                            </a>
                         </li>
                         @if (Session::has('userName'))
+
                             <li class="dau__navbar-user-item">
-<<<<<<< HEAD
-                                <a
-                                    href="UserInfo.php?=MaKH='.$_SESSION['user']['user_id'].'">{{ Session::get('userName') }}</a>
-=======
-                            <a href="{{(URL::to('/user'))}}">{{Session::get('userName')}}</a>
->>>>>>> 3bfea6247e3715fd54c76b3865140f36f08bde2e
+                                <a href="{{ URL::to('/user') }}">{{ Session::get('userName') }}</a>
                             </li>
                             <li class="dau__navbar-user-item">
                                 <a href="ViewOrder.php?TenKH='.$_SESSION['user']['user_name'].'">Xem đơn hàng</a>
@@ -126,7 +130,8 @@
                                     style="background-color: #4CAF50; color: white;">Login User</a>
                             </li>;
                             <li class="dau__navbar-user-item dau__navbar-user-item--separate  ;">
-                                <a href="{{ URL::to('admin/login') }}" style="background-color: #4CAF50; color: white;">Login Admin</a>
+                                <a href="../admin/loginadmin.php"
+                                    style="background-color: #4CAF50; color: white;">Login Admin</a>
                             </li>
                     </ul>
                     </li>

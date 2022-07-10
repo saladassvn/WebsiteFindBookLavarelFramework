@@ -3,14 +3,9 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\BookController;
-<<<<<<< HEAD
-use App\Http\Controllers\LoginAdminController;
-use Illuminate\Support\Facades\Auth;
-use App\Http\Controllers\IndexAdminController;
-use App\Models\sach;
-=======
 use App\Http\Controllers\UserController;
->>>>>>> 3bfea6247e3715fd54c76b3865140f36f08bde2e
+use App\Http\Controllers\LoginAdminController;
+use App\Http\Controllers\IndexAdminController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -47,9 +42,6 @@ Route::get('/{MaSach}', [BookController::class, 'returnDetailBook']);
 
 //Admin
 // Đăng nhập và xử lý đăng nhập
-// Route::get('admin/login', [LoginAdminController::class, 'getLogin'])->name('LoginAdmin');
-// Route::get('admin/login', ['as' => 'getLogin', 'uses' => 'LoginAdminController\LoginAdminController@getLogin']);
-// Route::post('admin/login', [Auth\LoginAdminController::class, 'postLogin']);
 Route::get('admin/login', [LoginAdminController::class, 'getLogin']);
 Route::post('admin/login', [LoginAdminController::class, 'postLogin']);
 
