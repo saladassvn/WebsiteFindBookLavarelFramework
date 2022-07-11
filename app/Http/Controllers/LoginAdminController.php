@@ -33,12 +33,15 @@ class LoginAdminController extends Controller
         }
         else{
             $admin = DB::table('taikhoanqt')->where('Email', $request->input('Email'))->get();
-            if(($admin[0]->MatKhau)==$request->input('MatKhau')){
-                $request->session()->put('AdminName', $admin[0]->Email);
-                return redirect('admin/IndexAdmin');
-           }else{
+            if(count($admin) != 0){
+                if(($admin[0]->MatKhau)==$request->input('MatKhau')){
+                    $request->session()->put('AdminName', $admin[0]->Email);
+                    return redirect('admin/IndexAdmin');
+               }
+            }
+            else{
                 Session::flash('error', 'Email hoặc Password không đúng');
-                return redirect('admin/Login');
+                return redirect('admin/login');
            }
         }
     }

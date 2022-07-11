@@ -49,11 +49,10 @@ class IndexAdminController extends Controller
 
         $gethinhanh = '';
         if ($req->hasFile('HinhAnh')) {
-            //Hàm kiểm tra dữ liệu
             $this->validate(
                 $req,
                 [
-                    //Kiểm tra đúng file đuôi .jpg,.jpeg,.png.gif và dung lượng không quá 2M
+                    //Kiểm tra đúng file đuôi .jpg,.jpeg,.png.gif và dung lượng không quá 10M
                     'HinhAnh' => 'mimes:jpg,jpeg,png,gif|max:10240',
                 ],
                 [
@@ -62,8 +61,6 @@ class IndexAdminController extends Controller
                     'HinhAnh.max' => 'Hình thẻ giới hạn dung lượng không quá 10M',
                 ]
             );
-
-            //Lưu hình ảnh vào thư mục public/upload/hinhthe
             $hinhanh = $req->file('HinhAnh');
             $gethinhanh = $hinhanh->getClientOriginalName();
             $destinationPath = public_path('../public/User/img');

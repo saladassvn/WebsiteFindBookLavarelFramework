@@ -47,11 +47,11 @@
                 <div class="from_row">
                     <label class="input__label" style="margin-right: 50px;">Hình ảnh</label>
                     <input type="file" class="from__input" style="width: 300px;" size="38"
-                        value="{{ $sach['HinhAnh'] }}">
+                        value=../public/User/img/{{ $sach['HinhAnh']}}>
                 </div>
                 <div class="from_row">
                     <label class="input__label">&nbsp;</label>
-                    <img src=../public/User/img/{{ $sach['HinhAnh'] }} name="HinhAnh" height="100" width="100">
+                    <img src='public/User/img/{{ $sach['HinhAnh'] }}' name="HinhAnh" height="100" width="100">
                 </div>
                 <div class="from_row">
                     <label class="input__label" style="margin-right: 50px;">Giá</label>
