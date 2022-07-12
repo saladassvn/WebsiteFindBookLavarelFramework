@@ -4,6 +4,9 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\BookController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\LoginAdminController;
+use App\Http\Controllers\IndexAdminController;
+use App\Http\Controllers\OrderAdminController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -14,7 +17,6 @@ use App\Http\Controllers\UserController;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
 //User
 Route::get('/', [HomeController::class, 'index']);
 Route::get('/homepage', [HomeController::class, 'index']);
@@ -39,3 +41,24 @@ Route::get('/cheaptohigh', [BookController::class, 'returnCheapToHigh']);
 Route::get('/hightocheap', [BookController::class, 'returnHighToCheap']);
 
 Route::get('/{MaSach}', [BookController::class, 'returnDetailBook']);
+
+//Admin
+// Đăng nhập và xử lý đăng nhập
+Route::get('admin/login', [LoginAdminController::class, 'getLogin']);
+Route::post('admin/login', [LoginAdminController::class, 'postLogin']);
+Route::get('admin/logout', [LoginAdminController::class, 'logout']);
+//Trang chủ
+Route::get('admin/IndexAdmin', [IndexAdminController::class, 'show'])->middleware('protectedPage');
+
+//Xóa
+Route::get('admin/delete/{MaSach}', [IndexAdminController::class, 'delete']);
+//Sửa
+Route::get('admin/edit/{MaSach}', [IndexAdminController::class, 'showData']);
+Route::post('admin/edit', [IndexAdminController::class, 'update']);
+//Thêm
+Route::view('admin/create', 'adminpages\CreateProducts');
+Route::post('admin/create', [IndexAdminController::class, 'AddData']);
+//Quản lý đặt hàng
+Route::get('admin/OrderManagement', [OrderAdminController::class, 'showOrder']);
+//Xóa đơn hàng
+Route::get('admin/deleteOrder/{MaDH}', [OrderAdminController::class, 'delete']);
