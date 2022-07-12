@@ -1,7 +1,4 @@
-<?php
-        session_start();
-        include "../connect.php";
-    ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>

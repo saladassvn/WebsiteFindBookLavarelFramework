@@ -15,7 +15,7 @@ if (!isset($_SESSION['admin'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../resources/css/style.css">
     <link rel="stylesheet" href="../resources/css/base.css">
-    <link rel="stylesheet" href="../resources/css/main.css">
+    <link rel="stylesheet" href="../resources/css/main.css">   
     <link rel="stylesheet" href="../resources/css/user_order_history.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.1/css/all.css"
@@ -44,7 +44,7 @@ if (!isset($_SESSION['admin'])) {
                         <td>{{ $sachs['TenSach'] }}</td>
                         <td>{{ $sachs['DanhMuc'] }}</td>
                         <td>{{ $sachs['MoTa'] }}</td>
-                        <td><img src="../img/{{ $sachs['HinhAnh'] }}" height="100" width="80"></td>
+                        <td><img src=../public/User/img/{{ $sachs['HinhAnh']}} height="100" width="80"></td>
                         <td>{{ $sachs['DonGia'] }}</td>
                         <td>
                             <a href={{ 'edit/' . $sachs['MaSach'] }} class="btn-ED-add">

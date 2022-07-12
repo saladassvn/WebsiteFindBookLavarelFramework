@@ -9,24 +9,13 @@
     <title>Login</title>
 </head>
 <body>
-    @if (count($errors) >0)
-         <ul>
-             @foreach($errors->all() as $error)
-                 <li class="text-danger"> {{ $error }}</li>
-             @endforeach
-         </ul>
-     @endif
-
-     @if (session('status'))
-         <ul>
-             <li class="text-danger"> {{ session('status') }}</li>
-         </ul>
-     @endif
-    <form action="{{ route('getLogin') }}" method="post">
-        {{ csrf_field() }}
+    
+    <form action="{{url('/store')}}" type="get">
+    
         <div class="register">
             <h1 style= "text-align: center;">Đăng nhập</h1>
             <p style= "text-align: center;">Vui lòng điền thông tin để đăng nhập</p>
+
             <hr>
                 <label for="email"><b>Tên đăng nhập</b></label>
                 <input type="text" placeholder="Nhập địa chỉ email" name="email" id="email">
