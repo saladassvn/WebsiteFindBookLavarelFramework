@@ -170,6 +170,7 @@
                     <div class="dau__cart">
                         <a href="{{ url('/viewcart') }}" class="dau__cart-wrap">
                             <i class="dau__cart-icon fas fa-shopping-cart"></i>
+                            <span class= "badge">{{Session::has('cart') ? Session::get('cart')->totalQty : ''}}</span>
                         </a>
                     </div>
                 </div>
