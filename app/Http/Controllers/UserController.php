@@ -30,5 +30,14 @@ class UserController extends Controller
         
     }
 
+    public function vieworder(){
+
+        return view('pages.viewOrder');
+    }
+
+    public function viewcart(){
+        return view('pages.cart');
+    }
+
     
 }
