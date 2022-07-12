@@ -24,7 +24,7 @@
                     <span class="fa fa-user-alt"></span>
                     <span class="sidebar-item-title">Thông tin tài khoản</span>
                 </a>
-                <a class="sidebar-item" href="ViewOrder.php">
+                <a class="sidebar-item" href="{{ URL::to('/vieworder') }}">
                     <span class="fa fa-address-card"></span>
                     <span class="sidebar-item-title">Xem đơn hàng</span>
                 </a>

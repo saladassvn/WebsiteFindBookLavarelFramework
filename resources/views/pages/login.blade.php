@@ -9,7 +9,6 @@
     <title>Login</title>
 </head>
 <body>
-    
     <form action="{{url('/store')}}" type="get">
     
         <div class="register">

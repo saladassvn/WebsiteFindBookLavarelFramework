@@ -26,13 +26,12 @@ session_start();
         <main role="main">
             @if(isset($details))
                 @foreach($details as $sach) 
-
             <div class="container mt-4">
     
                 <div class="card">
                     <div class="container-fliud">
                     
-                        <form method="post" action="Cart.php?action=add" class="home-product-item" 
+                        <form method="get"  class="home-product-item" 
                         name="frmsanphamchitiet" id="frmsanphamchitiet">
                                     
                             <div class="wrapper row detail">
@@ -104,3 +103,12 @@ session_start();
     <script src="{{asset('public/User/js/app.js')}}"></script>
 </body>
 </html>
+
+<script>
+    function addToCart(){
+        alert(123);
+    }
+    $(function(){
+        $('.add_to_cart').on('click',addToCart);
+    });
+</script>

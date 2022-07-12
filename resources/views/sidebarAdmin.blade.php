@@ -5,10 +5,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link href="../resources/css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
-    <link rel="stylesheet" href="../resources/css/style.css" />
-    <link rel="stylesheet" href="../resources/css/base.css" />
-    <link rel="stylesheet" href="../resources/css/main.css" />
+    <link href="{{asset('public/User/css/bootstrap.css')}}" rel="stylesheet" type="text/css" media="all" />
+    <link rel="stylesheet" href="{{asset('public/User/css/style.css')}}">
+    <link rel="stylesheet" href="{{asset('public/User/css/base.css')}}">
+    <link rel="stylesheet" href="{{asset('public/User/css/main.css')}}">
 </head>
 
 <body>
