@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Session;
+use App\Models\Cart;
 class UserController extends Controller
 {
     public function index(){
@@ -31,12 +32,16 @@ class UserController extends Controller
     }
 
     public function vieworder(){
-
         return view('pages.viewOrder');
     }
 
     public function viewcart(){
-        return view('pages.cart');
+        if (!Session::has('cart')) {
+            return view('pages.cart');
+        }
+        $oldCart = Session::get('cart');
+        $cart = new Cart($oldCart);
+        return view('pages.cart', ['products' => $cart->items, 'totalPrice' => $cart->totalPrice]);
     }
 
     

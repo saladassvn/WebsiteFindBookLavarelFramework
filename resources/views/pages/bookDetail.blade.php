@@ -31,8 +31,7 @@ session_start();
                 <div class="card">
                     <div class="container-fliud">
                     
-                        <form method="get"  class="home-product-item" 
-                        name="frmsanphamchitiet" id="frmsanphamchitiet">
+
                                     
                             <div class="wrapper row detail">
                                 <div class="previews col-md-6">
@@ -67,14 +66,14 @@ session_start();
                                         <label for="soluong">Số lượng đặt mua:</label>
                                         <input type="text" name="sl{{$sach->MaSach}}" value="1" class="form-control sl_ip" id="soluong" />
                                     </div>
-                                    <div class="action">
-                                        <input type="submit" name="add_to_cart" style="margin-top:5px;" class="btn btn-success" value="Thêm vào giỏ" />
-                                        <a class="btn btn-success heart_btn" style="margin-top:5px;" href="#"><span class="fa fa-heart"></span></a>
+                                    <div class="action">    
+                                        <a class="btn btn-success heart_btn" style="margin-top:5px;" href="{{route('addCart',['id' => $sach->MaSach])}}"><span class=""></span>Thêm vào giỏ</a>                               
+                                        <a class="btn btn-success heart_btn" style="margin-top:5px;"><span class="fa fa-heart"></span></a>
                                     </div>
                                 </div>
     
                             </div>
-                        </form>
+
                         
                     </div>
                 </div>
@@ -103,12 +102,3 @@ session_start();
     <script src="{{asset('public/User/js/app.js')}}"></script>
 </body>
 </html>
-
-<script>
-    function addToCart(){
-        alert(123);
-    }
-    $(function(){
-        $('.add_to_cart').on('click',addToCart);
-    });
-</script>
