@@ -68,7 +68,7 @@
                             <td style="text-align: center;">{{ $data['HTTT'] }}</td>
                             <td style="text-align: center;">{{ $data['TongTien'] }}</td>
                             <td style="text-align: center;">
-                                <a href={{ 'deleteOrder/' . $data['MaDH'] }} class="btn-ED-add">
+                                <a href={{ '/admin/deleteOrder/' . $data['MaDH'] }} class="btn-ED-add">
                                     <button class="btn btn-danger">Delete</button>
                                 </a>
                             </td>
@@ -77,7 +77,7 @@
                 </tbody>
             </table>
             <span style="text-align: center">
-                {{ $donhang->links() }}
+                {{ $donhang->links('adminpages.layouts.paginationlinks') }}
             </span>
         </div>
     </div>

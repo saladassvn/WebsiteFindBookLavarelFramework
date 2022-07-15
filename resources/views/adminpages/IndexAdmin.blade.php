@@ -26,16 +26,24 @@ if (!isset($_SESSION['admin'])) {
     @include('header')
     @include('sidebarAdmin')
     <div class="content-user">
-        <div class="admin-title-account" style="font-size: 18px; padding: 0;">Quản lý đặt hàng</div>
+        <div class="admin-title-account" style="font-size: 18px; padding: 0;">
+            <h2>Quản lý đặt hàng</h2>
+            <div class="search">
+                <form class="search-form" action="" method="GET">
+                    <input class="search-input" type="text" id="" name="show" placeholder="Nhập tên sách" required>
+                    <button class="search-button" type="submit">Search</button>
+                </form>   
+            </div>
+        </div>
         <div class="user-table" style="width: 100%;">
             <table class="table table-bordered">
                 <tr>
-                    <th>Mã sách </th>
-                    <th>Tên sản phẩm</th>
-                    <th>Danh Mục</th>
-                    <th>Mô tả</th>
-                    <th>Hình ảnh</th>
-                    <th>Giá sản phẩm</th>
+                    <th>@sortablelink('MaSach','Mã Sách')</a></th>
+                    <th>@sortablelink('TenSach','Tên Sản Phẩm')</th>
+                    <th>@sortablelink('DanhMuc','Danh Mục')</th>
+                    <th>@sortablelink('MoTa','Mô tả')</th>
+                    <th>@sortablelink('HinhAnh','Hình Ảnh')</th>
+                    <th>@sortablelink('DonGia','Giá Sản Phẩm')</th>
                     <th>Quản lý</th>
                 </tr>
                 @foreach ($sach as $sachs)
@@ -47,19 +55,19 @@ if (!isset($_SESSION['admin'])) {
                         <td><img src=../public/User/img/{{ $sachs['HinhAnh']}} height="100" width="80"></td>
                         <td>{{ $sachs['DonGia'] }}</td>
                         <td>
-                            <a href={{ 'edit/' . $sachs['MaSach'] }} class="btn-ED-add">
+                            <a href={{ '/admin/edit/' . $sachs['MaSach'] }} class="btn-ED-add">
                                 <button class="btn btn-warning">Edit</button>
                             </a>
-                            <a href={{ 'delete/' . $sachs['MaSach'] }} class="btn-ED-add">
+                            <a href={{ '/admin/delete/' . $sachs['MaSach'] }} class="btn-ED-add">
                                 <button class="btn btn-danger">Delete</button>
                             </a>
                         </td>
                     </tr>
                 @endforeach
             </table>
-            <span style="text-align: center">
-                {{ $sach->links() }}
-            </span>
+            <div class="pagination-block">
+                {{ $sach->links('adminpages.layouts.paginationlinks') }}
+            </div>
         </div>
     </div>
     </div>

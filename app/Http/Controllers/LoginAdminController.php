@@ -38,10 +38,14 @@ class LoginAdminController extends Controller
                     $request->session()->put('AdminName', $admin[0]->Email);
                     return redirect('admin/IndexAdmin');
                }
+               else{
+                Session::flash('error', 'Email hoặc Password không đúng');
+                return redirect()->back();
+               }
             }
             else{
                 Session::flash('error', 'Email hoặc Password không đúng');
-                return redirect('admin/login');
+                return redirect()->back();
            }
         }
     }

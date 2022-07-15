@@ -8,9 +8,16 @@ use Illuminate\Support\Facades\File;
 
 class IndexAdminController extends Controller
 {
-    public function show()
+    public function show(Request $request)
     {
-        $sachs = sach::paginate(5);
+        $search = $request['search'] ?? "";
+        if($search != ""){
+            $sachs = sach::where('TenSach','LIKE',"%$search%")->get();
+        }else{
+            $sachs = sach::sortable()->paginate(5);
+        }
+        $data = compact('search');
+        // $sachs = sach::paginate(5);
         return view('adminpages/IndexAdmin', ['sach' => $sachs]);
     }
     public function delete($id)

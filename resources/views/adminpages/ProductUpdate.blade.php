@@ -26,7 +26,7 @@
     <div class="content-user">
         <div class="admin-title-account" style="font-size: 18px; padding: 0;">Cập nhật sản phẩm</div>
         <div class="user-table" style="width: 100%;">
-            <form action="/admin/edit" method="POST" enctype="multipart/form-data">
+            <form action={{'/admin/edit/'}} method="POST" enctype="multipart/form-data">
                 @csrf
                 <input type="hidden" class="from__input" name="MaSach" value="{{ $sach['MaSach'] }}" />
                 <div class="from_row">
@@ -42,7 +42,7 @@
                 <div class="from_row">
                     <label class="input__label" style="margin-right: 50px;">Mô tả</label>
                     <textarea class="from__input" rows="10" name="MoTa" style="width: 300px;" size="38"
-                        value="{{ $sach['MoTa'] }}"></textarea>
+                        value="{{ $sach['MoTa'] }}">{{ $sach['MoTa'] }}</textarea>
                 </div>
                 <div class="from_row">
                     <label class="input__label" style="margin-right: 50px;">Hình ảnh</label>
@@ -51,12 +51,12 @@
                 </div>
                 <div class="from_row">
                     <label class="input__label">&nbsp;</label>
-                    <img src='public/User/img/{{ $sach['HinhAnh'] }}' name="HinhAnh" height="100" width="100">
+                    <img src='public/User/img/{{ $sach['HinhAnh'] }}' name="HinhAnh" height="100" width="100"/>
                 </div>
                 <div class="from_row">
                     <label class="input__label" style="margin-right: 50px;">Giá</label>
                     <input type="text" class="from__input" name="DonGia" value="{{ $sach['DonGia'] }}"
-                        style="width: 300px;" size="38">
+                        style="width: 300px;" size="38"/>
                 </div>
                 <div class="from_row">
                     <label class="input__label">&nbsp;</label>
