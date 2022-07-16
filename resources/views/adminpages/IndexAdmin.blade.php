@@ -15,7 +15,7 @@ if (!isset($_SESSION['admin'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../resources/css/style.css">
     <link rel="stylesheet" href="../resources/css/base.css">
-    <link rel="stylesheet" href="../resources/css/main.css">   
+    <link rel="stylesheet" href="../resources/css/main.css">
     <link rel="stylesheet" href="../resources/css/user_order_history.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.1/css/all.css"
@@ -26,48 +26,60 @@ if (!isset($_SESSION['admin'])) {
     @include('header')
     @include('sidebarAdmin')
     <div class="content-user">
-        <div class="admin-title-account" style="font-size: 18px; padding: 0;">Quản lý đặt hàng</div>
+        <div class="admin-title-account" style="font-size: 18px; padding: 0;">
+            <h2>Quản lý đặt hàng</h2>
+            <div class="search">
+                <form class="search-form" action="">
+                    <input class="search-input" type="search" id="" name="search" placeholder="Nhập tên sách"
+                        value="{{ $search }}">
+                    <button class="search-button" type="submit">Tìm Kiếm</button>
+                </form>
+            </div>
+        </div>
         <div class="user-table" style="width: 100%;">
             <table class="table table-bordered">
                 <tr>
-                    <th>Mã sách </th>
-                    <th>Tên sản phẩm</th>
-                    <th>Danh Mục</th>
-                    <th>Mô tả</th>
-                    <th>Hình ảnh</th>
-                    <th>Giá sản phẩm</th>
+                    <th>@sortablelink('MaSach', 'Mã Sách')</a></th>
+                    <th>@sortablelink('TenSach', 'Tên Sản Phẩm')</th>
+                    <th>@sortablelink('DanhMuc', 'Danh Mục')</th>
+                    <th>@sortablelink('MoTa', 'Mô tả')</th>
+                    <th>@sortablelink('HinhAnh', 'Hình Ảnh')</th>
+                    <th>@sortablelink('DonGia', 'Giá Sản Phẩm')</th>
                     <th>Quản lý</th>
                 </tr>
-                @foreach ($sach as $sachs)
+                @foreach ($sachs as $sach)
                     <tr>
-                        <td>{{ $sachs['MaSach'] }}</td>
-                        <td>{{ $sachs['TenSach'] }}</td>
-                        <td>{{ $sachs['DanhMuc'] }}</td>
-                        <td>{{ $sachs['MoTa'] }}</td>
-                        <td><img src=../public/User/img/{{ $sachs['HinhAnh']}} height="100" width="80"></td>
-                        <td>{{ $sachs['DonGia'] }}</td>
+                        <td>{{ $sach['MaSach'] }}</td>
+                        <td>{{ $sach['TenSach'] }}</td>
+                        <td>{{ $sach['DanhMuc'] }}</td>
+                        <td>{{ $sach['MoTa'] }}</td>
+                        <td><img src="../public/User/img/{{ $sach['HinhAnh'] }}" height="100" width="80"></td>
+                        <td>{{ $sach['DonGia'] }}</td>
                         <td>
-                            <a href={{ 'edit/' . $sachs['MaSach'] }} class="btn-ED-add">
-                                <button class="btn btn-warning">Edit</button>
+                            <a href="{{URL::to('/admin/edit' . $sach['MaSach']) }}" class="btn-ED-add">
+                                <button class="btn btn-warning">Chỉnh Sửa</button>
                             </a>
-                            <a href={{ 'delete/' . $sachs['MaSach'] }} class="btn-ED-add">
-                                <button class="btn btn-danger">Delete</button>
+                            <a href="{{URL::to('/admin/delete/' . $sach['MaSach']) }}" class="btn-ED-add">
+                                <button class="btn btn-danger">Xóa</button>
                             </a>
                         </td>
                     </tr>
                 @endforeach
             </table>
-            <span style="text-align: center">
-                {{ $sach->links() }}
-            </span>
+            @if ($search == null)
+                <div class="pagination-block">
+                    {{ $sachs->links('adminpages.layouts.paginationlinks') }}
+                </div>
+            @endif
         </div>
     </div>
     </div>
     @include('footer')
 </body>
 <style>
-    .w-5{
+    .w-5 {
         display: none;
     }
 </style>
+
 </html>

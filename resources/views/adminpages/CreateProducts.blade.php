@@ -1,9 +1,4 @@
-{{-- <?php
-session_start();
-if (!isset($_SESSION['admin'])) {
-    header('Location: LoginAdmin.php');
-}
-?> --}}
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -35,30 +30,30 @@ if (!isset($_SESSION['admin'])) {
                     <div class="from_row">
                         <label class="input__label" style="margin-right: 50px;">Tên sản phẩm</label>
                         <input type="text" class="from__input" name="TenSach" placeholder="Tên sách"
-                            style="width: 300px;" size="38">
+                            style="width: 300px;" size="38" required>
                     </div>
                     <div class="from_row">
                         <label class="input__label" style="margin-right: 50px;">Danh mục</label>
                         <input type="text" class="from__input" name="DanhMuc" placeholder="Danh mục"
-                            style="width: 300px;" size="38">
+                            style="width: 300px;" size="38" required>
                     </div>
                     <div class="from_row">
                         <label class="input__label" style="margin-right: 50px;">Giá</label>
                         <input type="text" class="from__input" name="DonGia" placeholder="Giá sản phẩm"
-                            style="width: 300px;" size="38">
+                            style="width: 300px;" size="38" required>
                     </div>
                     <div class="from_row">
                         <label class="input__label" style="margin-right: 50px;">Hình ảnh</label>
-                        <input type="file" class="from__input" name="HinhAnh" style="width: 300px;" size="38">
+                        <input type="file" class="from__input" name="HinhAnh" style="width: 300px;" size="38" required>
                     </div>
                     <div class="from_row">
                         <label class="input__label" style="margin-right: 50px;">Mô tả</label>
                         <textarea class="from__input" rows="10" name="MoTa" placeholder="Điền mô tả cần thiết" style="width: 300px;"
-                            size="38"></textarea>
+                            size="38" required></textarea>
                     </div>
                     <div class="from_row">
                         <label class="input__label" style="margin-right: 50px;">&nbsp;</label>
-                        <input type="submit" name="themsanpham" value="Thêm sản phẩm" class="btn btn-default">
+                        <input type="submit" name="themsanpham" value="Thêm sản phẩm" class="btn btn-default" required>
                     </div>
                 </form>
             </div>

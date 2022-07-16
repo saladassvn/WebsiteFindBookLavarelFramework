@@ -11,7 +11,7 @@
 </head>
 
 <body>
-    <form action={{ 'login' }} method="post">
+    <form action="{{ 'login' }}" method="post">
         {{ csrf_field() }}
         <div class="register">
             <h1 style="text-align:center;font-family:Blippo;">ADMIN SHOPIT</h1>

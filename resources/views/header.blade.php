@@ -123,7 +123,7 @@
                             </li>
                         @elseif(Session::has('AdminName'))
                             <li class="dau__navbar-user-item">
-                                <a href="{{ URL::to('admin/IndexAdmin') }}">Trang Admin</a>
+                                <a href="{{ URL::to('admin/IndexAdmin')}}">Trang Admin</a>
                             </li>
                              <li class="dau__navbar-user-item">
                                 <a href="{{ URL::to('admin/logout') }}">Đăng xuất</a>

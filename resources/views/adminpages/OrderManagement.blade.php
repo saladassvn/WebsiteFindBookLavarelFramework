@@ -6,11 +6,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Order Management</title>
-    <link rel="stylesheet" href="../resources/css/style.css">
-    <link rel="stylesheet" href="../resources/css/base.css">
-    <link rel="stylesheet" href="../resources/css/main.css">
-    <!-- <link rel="stylesheet" href="../css/ThongTin_AD.css"> -->
-    <link rel="stylesheet" href="../resources/css/user_order_history.css">
+    <link rel="stylesheet" href="{{asset('resources/css/style.css')}}">
+    <link rel="stylesheet" href="{{asset('resources/css/base.css')}}">
+    <link rel="stylesheet" href="{{asset('resources/css/main.css')}}">
+    <!-- <link rel="stylesheet" href="{{asset('resources/css/ThongTin_AD.css')}}"> -->
+    <link rel="stylesheet" href="{{asset('resources/css/user_order_history.css')}}">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.1/css/all.css"
         integrity="sha384-O8whS3fhG2OnA5Kas0Y9l3cfpmYjapjI0E4theH4iuMD+pLhbf6JI0jIMfYcK3yZ" crossorigin="anonymous">
@@ -43,7 +43,14 @@
     @include('header')
     @include('sidebarAdmin')
     <div class="content-user">
-        <div class="admin-title-account" style="font-size: 18px; padding: 0;">Quản lý đặt hàng</div>
+        <h2>Quản lý đặt hàng</h2>
+        <div class="search">
+            <form class="search-form" action="">
+                <input class="search-input" type="search" id="" name="search" placeholder="Nhập tên người đặt hàng"
+                    value="{{ $search }}">
+                <button class="search-button" type="submit">Tìm Kiếm</button>
+            </form>
+        </div>
         <div class="user-table" style="width: 100%;">
             <table>
                 <thead>
@@ -59,26 +66,33 @@
                 </thead>
 
                 <tbody>
-                    @foreach ($donhang as $data)
+                    @foreach ($data as $donhang)
                         <tr class="order-rows">
-                            <td style="text-align: center;">{{ $data['MaDH'] }}</td>
-                            <td style="text-align: center;">{{ $data['TenKH'] }}</td>
-                            <td style="text-align: center;">{{ $data['Phone'] }}</td>
-                            <td style="text-align: center;">{{ $data['DiaChi'] }}</td>
-                            <td style="text-align: center;">{{ $data['HTTT'] }}</td>
-                            <td style="text-align: center;">{{ $data['TongTien'] }}</td>
+                            <td style="text-align: center;">{{ $donhang['MaDH'] }}</td>
+                            <td style="text-align: center;">{{ $donhang['TenKH'] }}</td>
+                            <td style="text-align: center;">{{ $donhang['Phone'] }}</td>
+                            <td style="text-align: center;">{{ $donhang['DiaChi'] }}</td>
+                            <td style="text-align: center;">{{ $donhang['HTTT'] }}</td>
+                            <td style="text-align: center;">{{ $donhang['TongTien'] }}</td>
                             <td style="text-align: center;">
-                                <a href={{ 'deleteOrder/' . $data['MaDH'] }} class="btn-ED-add">
-                                    <button class="btn btn-danger">Delete</button>
+                            
+                                <a href="{{(URL::to('/admin/detailOrder/' . $donhang['MaDH']))}}" class="btn-ED-add">
+                                    <button class="btn btn-warning">Xem Chi Tiết</button>
+                                </a>
+                                
+                                <a href="{{(URL::to('/admin/deleteOrder/' . $donhang['MaDH']))}}" class="btn-ED-add">
+                                    <button class="btn btn-danger">Xóa</button>
                                 </a>
                             </td>
                         </tr>
                     @endforeach
                 </tbody>
             </table>
-            <span style="text-align: center">
-                {{ $donhang->links() }}
-            </span>
+            @if ($search == null)
+                <div class="pagination-block">
+                    {{ $data->links('adminpages.layouts.paginationlinks') }}
+                </div>
+            @endif
         </div>
     </div>
     </div>
