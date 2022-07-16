@@ -7,9 +7,20 @@ use App\Models\donhang;
 
 class OrderAdminController extends Controller
 {
-    public function showOrder(){
-        $data = donhang::paginate(5);
-        return view('adminpages/OrderManagement', ['donhang' => $data]);
+    public function showOrder(Request $request){
+        $search = $request['search'] ?? "";
+        if($search != ""){
+            $data = donhang::where('TenKH','LIKE',"%$search%")->get();
+        }
+        else{
+            $data = donhang::paginate(5);
+        }
+        $dt = compact('data', 'search');
+        return view('adminpages/OrderManagement')->with($dt);
+    }
+    public function detail($id){
+        $donhang = donhang::find($id);
+        return view('adminpages/DetailOrder', ['donhang' => $donhang]);
     }
     public function delete($id){
         $data = donhang::find($id);

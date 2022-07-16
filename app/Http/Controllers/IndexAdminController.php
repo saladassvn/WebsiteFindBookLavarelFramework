@@ -11,24 +11,25 @@ class IndexAdminController extends Controller
     public function show(Request $request)
     {
         $search = $request['search'] ?? "";
-        if($search != ""){
-            $sachs = sach::where('TenSach','LIKE',"%$search%")->get();
-        }else{
+        if ($search != "") {
+            $sachs = sach::where('TenSach', 'LIKE', "%$search%")->sortable()->get();
+        }
+        else {
             $sachs = sach::sortable()->paginate(5);
         }
-        $data = compact('search');
+        $data = compact('sachs','search');
         // $sachs = sach::paginate(5);
-        return view('adminpages/IndexAdmin', ['sach' => $sachs]);
+        return view('adminpages/IndexAdmin')->with($data);
     }
     public function delete($id)
     {
         $data = sach::find($id);
-        $path = public_path('../public/User/img/').$data->HinhAnh;
-        if(File::exists($path)){
+        $path = public_path('../public/User/img/') . $data->HinhAnh;
+        if (File::exists($path)) {
             File::delete($path);
         }
         $data->delete();
-        return redirect('admin/IndexAdmin')->with('success','Xóa thành công');
+        return redirect('admin/IndexAdmin')->with('success', 'Xóa thành công');
     }
     public function showData($MaSach)
     {
@@ -41,10 +42,34 @@ class IndexAdminController extends Controller
         $data->TenSach = $req->get('TenSach');
         $data->DanhMuc = $req->get('DanhMuc');
         $data->DonGia = $req->get('DonGia');
-        $data->HinhAnh = $req->HinhAnh;
-        $data->MoTa = $req->get('MoTa');
+        $data->HinhAnh = $req->get('HinhAnh');
+        $data->HinhAnh = $req->HinhAnh->getClientOriginalName();
+
+        $gethinhanh = '';
+        if ($req->hasFile('HinhAnh')) {
+            $this->validate(
+                $req,
+                [
+                    //Kiểm tra đúng file đuôi .jpg,.jpeg,.png.gif và dung lượng không quá 10M
+                    'HinhAnh' => 'mimes:jpg,jpeg,png,gif|max:10240',
+                ],
+                [
+                    //Tùy chỉnh hiển thị thông báo không thõa điều kiện
+                    'HinhAnh.mimes' => 'Chỉ chấp nhận hình thẻ với đuôi .jpg .jpeg .png .gif',
+                    'HinhAnh.max' => 'Hình thẻ giới hạn dung lượng không quá 10M',
+                ]
+            );
+            $path = public_path('../public/User/img/') . $data->HinhAnh;
+            if (File::exists($path)) {
+                File::delete($path);
+            }
+            $hinhanh = $req->file('HinhAnh');
+            $gethinhanh = $hinhanh->getClientOriginalName();
+            $destinationPath = public_path('../public/User/img');
+            $hinhanh->move($destinationPath, $gethinhanh);
+        }
         $data->save();
-        return redirect('admin/IndexAdmin');
+        return redirect()->back()->with('status', 'Chỉnh sửa thành công');
     }
     public function AddData(Request $req)
     {
