@@ -16,14 +16,14 @@
         <div class="sidebar-admin">
             <div class="sidebar-title">DANH SÁCH CHỨC NĂNG</div>
             <br><br>
-            <a class="sidebar-item" href={{ '/admin/create' }}>
+            <a class="sidebar-item" href="{{url('/admin/create')}}">
                 <span class="fas fa-tags" class="sidebar-item-title"style="color: #1c1c1d">Tạo sản phẩm</span>
             </a>
-            <a class="sidebar-item" href={{ '/admin/IndexAdmin' }}>
+            <a class="sidebar-item" href="{{url('/admin/IndexAdmin')}}">
                 <span class="fa fa-address-book" class="sidebar-item-title" style="color: #1c1c1d">Quản lý sản
                     phẩm</span>
             </a>
-            <a class="sidebar-item" href={{ '/admin/OrderManagement' }}>
+            <a class="sidebar-item" href="{{url('/admin/OrderManagement')}}">
                 <span class="fas fa-tasks" class="sidebar-item-title"style="color: #1c1c1d">Quản lý đặt hàng</span>
             </a>
         </div>

@@ -43,10 +43,10 @@
     @include('header')
     @include('sidebarAdmin')
     <div class="content-user">
-        <div class="admin-title-account" style="font-size: 18px; padding: 0;">Quản lý đặt hàng</div>
+        <h2>Quản lý đặt hàng</h2>
         <div class="search">
             <form class="search-form" action="">
-                <input class="search-input" type="search" id="" name="search" placeholder="Nhập tên sách"
+                <input class="search-input" type="search" id="" name="search" placeholder="Nhập tên người đặt hàng"
                     value="{{ $search }}">
                 <button class="search-button" type="submit">Tìm Kiếm</button>
             </form>
@@ -75,10 +75,12 @@
                             <td style="text-align: center;">{{ $donhang['HTTT'] }}</td>
                             <td style="text-align: center;">{{ $donhang['TongTien'] }}</td>
                             <td style="text-align: center;">
-                                <a href={{ '/admin/detailOrder/' . $donhang['MaDH'] }} class="btn-ED-add">
+                            
+                                <a href="{{(URL::to('/admin/detailOrder/' . $donhang['MaDH']))}}" class="btn-ED-add">
                                     <button class="btn btn-warning">Xem Chi Tiết</button>
                                 </a>
-                                <a href={{ '/admin/deleteOrder/' . $donhang['MaDH'] }} class="btn-ED-add">
+                                
+                                <a href="{{(URL::to('/admin/deleteOrder/' . $donhang['MaDH']))}}" class="btn-ED-add">
                                     <button class="btn btn-danger">Xóa</button>
                                 </a>
                             </td>

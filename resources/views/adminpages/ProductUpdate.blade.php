@@ -28,8 +28,8 @@
             <h6 class="alert alert-success">{{ session('status') }}</h6>
         @endif
         <div class="admin-title-account" style="font-size: 18px; padding: 0;">Cập nhật sản phẩm</div>
-        <div class="user-table" style="width: 100%;">
-            <form action={{ '/admin/edit/' }} method="POST" enctype="multipart/form-data">
+        <div class="user-table" style="width: 100%;">       
+            <form action="{{(URL::to('/admin/edit/'))}}" method="POST" enctype="multipart/form-data">
                 @csrf
                 <input type="hidden" class="from__input" name="MaSach" value="{{ $sach['MaSach'] }}" />
                 <div class="from_row">
@@ -65,7 +65,7 @@
                     <input type="submit" style="text-align: center;" name="capnhatsanpham" value="Cập nhật"
                         class="btn__submit">
                     <button class="btn__submit" type="button" style="text-align: center;margin-left: 50px">
-                        <a href="{{ '/admin/IndexAdmin' }}">Trở về danh sách</a>
+                        <a href="{{URL::to('/admin/IndexAdmin')}}">Trở về danh sách</a>
                     </button>
 
                 </div>

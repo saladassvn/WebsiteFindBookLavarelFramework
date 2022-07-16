@@ -52,7 +52,7 @@ class LoginAdminController extends Controller
     public function Logout(Request $request)
     {
         $request -> session() -> forget('AdminName');
-        return redirect('admin/login')->with('notice', 'Đăng xuất thành công');
+        return redirect('/')->with('notice', 'Đăng xuất thành công');
     }
 }
 

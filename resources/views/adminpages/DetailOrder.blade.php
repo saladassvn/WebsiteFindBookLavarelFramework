@@ -71,7 +71,7 @@
                 </div>
                 <div class="from_row">
                     <label class="input__label" style="margin-right: 50px;">&nbsp;</label>
-                    <a class="btn btn-warning" href="{{ '/admin/OrderManagement' }}">Trở về danh sách</a>
+                    <a class="btn btn-warning" href="{{URL::to('/admin/OrderManagement')}}">Trở về danh sách</a>
                 </div>
             </form>
 
