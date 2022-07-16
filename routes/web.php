@@ -30,6 +30,13 @@ Route::get('/storeRe', [HomeController::class, 'storeRe']);
 
 Route::get('/user', [UserController::class, 'index']);
 Route::get('/useredit', [UserController::class, 'edit']);
+Route::get('/vieworder', [UserController::class, 'vieworder']);
+Route::get('/viewcart', [UserController::class, 'viewcart']);   
+
+
+Route::get('/add-to-cart/{id}', [BookController::class, 'addtocart'])->name('addCart');
+Route::get('/checkout', [BookController::class, 'checkout'])->name('checkout');
+Route::post('/checkout', [BookController::class, 'postcheckout'])->name('checkout');
 
 
 Route::get('/bestsellingbook', [BookController::class, 'returnBestSellingBook']);
@@ -41,6 +48,8 @@ Route::get('/cheaptohigh', [BookController::class, 'returnCheapToHigh']);
 Route::get('/hightocheap', [BookController::class, 'returnHighToCheap']);
 
 Route::get('/{MaSach}', [BookController::class, 'returnDetailBook']);
+
+
 
 //Admin
 // Đăng nhập và xử lý đăng nhập

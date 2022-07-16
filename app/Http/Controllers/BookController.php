@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use App\Models\sach;
+use Session;
+use App\Models\Cart;
 
 class BookController extends Controller
 {
@@ -73,5 +76,28 @@ class BookController extends Controller
         
     }
 
-    
+    public function addtocart(Request $request, $MaSach){
+        $sach = sach::find($MaSach);
+        $oldCart = Session::has('cart') ? Session::get('cart') : null;
+        $cart = new cart($oldCart);
+        $cart->add($sach, $sach->MaSach);
+
+        $request->session()->put('cart', $cart);
+        
+
+        return view('pages.book');
+    }
+
+    public function checkout(){
+        if(!Session::has('cart')){
+            return view('pages.cart');
+        }
+
+        $oldCart = Session::get('cart');
+        $cart = new Cart($oldCart);
+        $total = $cart->totalPrice;
+        return view('pages.checkout', ['total' => $total]);
+    }
+
+
 }

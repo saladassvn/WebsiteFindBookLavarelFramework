@@ -22,6 +22,8 @@ class HomeController extends Controller
     public function logout (Request $r){
 
         $r -> session()->forget('userName');
+        $r -> session()->forget('userPhone');
+        $r -> session()->forget('userDC');
         $r -> session()->forget('userID');
         return redirect('/');
     }
@@ -44,6 +46,8 @@ class HomeController extends Controller
             if(($user[0]->MatKhau)==$request->input('password')){
                 $request->session()->put('userName', $user[0]->TenKH);
                 $request->session()->put('userID', $user[0]->MaKH);
+                $request->session()->put('userPhone', $user[0]->Phone);
+                $request->session()->put('userDC', $user[0]->DiaChi);
                 return redirect('/');
             }  
         }
