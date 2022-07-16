@@ -82,14 +82,14 @@
                 <div class="grid__column-2-4">
                     <h3 class="footer__heading">Vào cửa hàng trên ứng dụng</h3>
                     <div class="footer__dowload">
-                        <img src="{{ 'public/User/img/qr_code.png' }}" alt="Download QR" class="footer__download-qr">
+                        <img src="{{asset('public/User/img/qr_code.png')}}" alt="Download QR" class="footer__download-qr">
                         <div class="footer__download-apps">
                             <a href="" class="footer__dowload-app-link">
-                                <img src="{{ 'public/User/img/google_play.png' }}" alt="Google play"
+                                <img src="{{asset('public/User/img/google_play.png')}}" alt="Google play"
                                     class="footer__dowload-app-img">
                             </a>
                             <a href="" class="footer__dowload-app-link">
-                                <img src="{{ 'public/User/img/app_store.png' }}" alt="App store"
+                                <img src="{{asset('public/User/img/app_store.png') }}" alt="App store"
                                     class="footer__dowload-app-img">
                             </a>
                         </div>
