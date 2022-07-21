@@ -29,10 +29,8 @@ session_start();
             <div class="container mt-4">
     
                 <div class="card">
-                    <div class="container-fliud">
-                    
-
-                                    
+                    <div class="container-fliud">              
+                        <form  action="{{route('addCart',['id' => $sach->MaSach])}}" class="home-product-item" name="frmsanphamchitiet" id="frmsanphamchitiet">                                   
                             <div class="wrapper row detail">
                                 <div class="previews col-md-6">
                                     <div class="">
@@ -64,16 +62,16 @@ session_start();
                                         <strong>Uy tín</strong>!</p>
                                     <div class="form-group">
                                         <label for="soluong">Số lượng đặt mua:</label>
-                                        <input type="text" name="sl{{$sach->MaSach}}" value="1" class="form-control sl_ip" id="soluong" />
+                                        <input type="number" name="sl" value="1" min="1" class="form-control sl_ip" id="soluong" />
                                     </div>
                                     <div class="action">    
-                                        <a class="btn btn-success heart_btn" style="margin-top:5px;" href="{{route('addCart',['id' => $sach->MaSach])}}"><span class=""></span>Thêm vào giỏ</a>                               
+                                        <button class="btn btn-success heart_btn" style="margin-top:5px;" ><span class=""></span>Thêm vào giỏ</button>                               
                                         <a class="btn btn-success heart_btn" style="margin-top:5px;"><span class="fa fa-heart"></span></a>
                                     </div>
                                 </div>
     
                             </div>
-
+                        </form>
                         
                     </div>
                 </div>

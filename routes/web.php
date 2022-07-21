@@ -31,12 +31,16 @@ Route::get('/storeRe', [HomeController::class, 'storeRe']);
 Route::get('/user', [UserController::class, 'index']);
 Route::get('/useredit', [UserController::class, 'edit']);
 Route::get('/vieworder', [UserController::class, 'vieworder']);
-Route::get('/viewcart', [UserController::class, 'viewcart']);   
 
+
+Route::get('/viewcart', [UserController::class, 'viewcart'])->name('viewcart');;   
 
 Route::get('/add-to-cart/{id}', [BookController::class, 'addtocart'])->name('addCart');
 Route::get('/checkout', [BookController::class, 'checkout'])->name('checkout');
 Route::post('/checkout', [BookController::class, 'postcheckout'])->name('checkout');
+Route::get('/remove/{id}',[UserController::class, 'getRemoveItem'])->name('bookremove');;
+
+Route::get('/detailOrder/{MaDH}', [UserController::class, 'detailOrder'])->name('detailUS');
 
 
 Route::get('/bestsellingbook', [BookController::class, 'returnBestSellingBook']);
