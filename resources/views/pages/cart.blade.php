@@ -21,6 +21,11 @@
 <!-- Block content - Đục lỗ trên giao diện bố cục chung, đặt tên là `content` -->
 <div class="container mt-4">
 <h1 class="text-center">Giỏ hàng</h1>
+@if(Session::has('loginRequired'))
+                <div>
+                <h6 class="alert alert-warning" style ="font-size:20px;">{{ Session::get('loginRequired') }}</h6>
+                </div>
+@endif
 @if(Session::has('cart'))
 <form action="Cart.php?action=submit" method="post" class="row">
     <div class="col col-md-12">
@@ -46,7 +51,7 @@
             
                         <!-- Nút xóa, bấm vào sẽ xóa thông tin dựa vào khóa chính `sp_ma` -->
                         <a id="delete_1" data-sp-ma="2" class="btn btn-danger btn-delete-sanpham" 
-                        href="">
+                        href="{{route('bookremove',['id'=>$product['item']['MaSach']])}}"}}>
                             <i class="fa fa-trash" aria-hidden="true"></i> Xóa                           
                         </a>
                     </td>
@@ -72,11 +77,12 @@
     </div>
 </form>
     @else
-        <div class="row">
-            <div class="col-sm-6 col-md-6 col-md-offset-3 col-sm-offset-3">
-                <h2 style="font-size:25px">Không có sản phẩm nào trong giỏ hàng</h2>
+    <p></p>
+    <br>
+    <h2 style="font-size:20px; text-align: center;">Bạn không có sản phẩm nào trong giỏ hàng</h2>
+            <div class="col-sm-6 col-md-6 col-md-offset-3 col-sm-offset-3" style="min-height: 500px;">               
             </div>
-        </div>
+
     @endif
 <!-- End block content -->
 </main>

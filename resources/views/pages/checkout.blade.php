@@ -35,28 +35,28 @@
                     <div class="col-xs-12">
                         <div class="form-group">
                             <label for="name" style = "font-size: 15px;">Tên khách hàng:</label>
-                            <input type="text" id="name" style = "font-size: 13px;" class="form-control" value="{{ Session::get('userName') }}" required>
+                            <input type="text" name="name" id="name" style = "font-size: 13px;" class="form-control" value="{{ Session::get('userName') }}" required>
                         </div>
                     </div>
                     <div class="col-xs-12">
                         <div class="form-group">
                             <label for="address" style = "font-size: 15px;">Địa chỉ:</label>
-                            <input type="text" id="address" style = "font-size: 13px;"   class="form-control" value="{{ Session::get('userDC') }}" required>
+                            <input type="text" name="dc" id="address" style = "font-size: 13px;"   class="form-control" value="{{ Session::get('userDC') }}" required>
                         </div>
                     </div>
                     <hr>
                     <div class="col-xs-12">
                         <div class="form-group">
                             <label for="card-name" style = "font-size: 15px;">Số điện thoại:</label>
-                            <input type="text" id="card-name" style = "font-size: 13px;"  class="form-control" value="{{ Session::get('userPhone') }}" required>
+                            <input type="text" name="sdt" id="card-name" style = "font-size: 13px;"  class="form-control" value="{{ Session::get('userPhone') }}" required>
                         </div>
                     </div>
                     <div class="col-xs-12">
                         <div class="form-group">
                             <label for="card-number" style = "font-size: 15px;">Phương thức thanh toán:</label>
-                            <select id="pttt" style = "width: 250px; font-size: 13px;">
-  <option value="tm">Tiền mặt</option>
-  <option value="ck">Chuyển khoản</option>
+                            <select id="pttt" style = "width: 250px; font-size: 13px;" name="pttt">
+  <option value="Tiền mặt">Tiền mặt</option>
+  <option value="Chuyển khoản">Chuyển khoản</option>
 </select>
                         </div>
                     </div>

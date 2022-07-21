@@ -46,13 +46,11 @@
                 </a>
                 <a class="sidebar-item" href="{{ URL::to('/vieworder') }}">
                     <span class="fa fa-address-card"></span>
-                    <span class="sidebar-item-title">Xem đơn hàng</span>
+                    <span class="sidebar-item-title" >Xem đơn hàng</span>
                 </a>
             </div>
-          
-
             <div class="content-user">
-                <div class="admin-title-account" style="font-size: 25px; padding: 0;">Xem đơn hàng</div>
+                <div class="admin-title-account" style="font-size: 25px; padding: 0; font-weight: bold;">Xem đơn hàng của tôi</div>
                 <div class="user-table" style="width: 100%;">
                     <table>
                         <thead>
@@ -63,19 +61,28 @@
                                 <th style="width: 150px;">Địa chỉ</th>
                                 <th style="width: 150px;">Hình thức thanh toán</th>
                                 <th style="width: 150px;">Giá tổng đơn hàng</th>
-                                
+                                <th style="width: 150px;"></th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr class="order-rows">
-                                <td style="text-align: center;"><a href=></td>
-                                <td style="text-align: center;">a</td>
-                                <td style="text-align: center;">b</td>
-                                <td style="text-align: center;">c</td>
-                                <td style="text-align: center;">d</td>
-                                <td style="text-align: center;">e</td>
-                                
-                            </tr>
+                        <tbody>
+                    @foreach ($details as $donhang)
+                        <tr class="order-rows">
+                            <td style="text-align: center;">{{ $donhang['MaDH'] }}</td>
+                            <td style="text-align: center;">{{ $donhang['TenKH'] }}</td>
+                            <td style="text-align: center;">{{ $donhang['Phone'] }}</td>
+                            <td style="text-align: center;">{{ $donhang['DiaChi'] }}</td>
+                            <td style="text-align: center;">{{ $donhang['HTTT'] }}</td>
+                            <td style="text-align: center;">{{ $donhang['TongTien'] }}</td>
+                            <td style="text-align: center;">                           
+                                <a href="{{(URL::to('/detailOrder/' . $donhang['MaDH']))}}" class="btn-ED-add">
+                                    
+                                    <button class="btn btn-warning" href="{{(URL::to('/detailOrder/' . $donhang['MaDH']))}}">Xem Chi Tiết</button>
+                                </a>                            
+                            </td>
+                        </tr>
+                    @endforeach
+                </tbody>
                         </tbody>
 
                     </table>

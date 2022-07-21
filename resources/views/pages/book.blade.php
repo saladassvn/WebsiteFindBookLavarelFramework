@@ -23,7 +23,11 @@
     ?>
 
 @include('header')
-
+@if(Session::has('bookadd'))
+<div>
+<h6 class="alert alert-success" style ="font-size:20px;">{{Session::get('bookadd')}}</h6>
+</div>
+@endif
 <div class="app__container">
             <div class="grid">
                  <div class="grid__row app__content">
