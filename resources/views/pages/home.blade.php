@@ -25,7 +25,18 @@
 @include('header')
 <div id="content">
             <!-- About section -->
+
             <div id="band" class="content-section">
+            @if(Session::has('success'))
+                <div>
+                <h6 class="alert alert-success" style ="font-size:20px;">{{Session::get('success')}}</h6>
+                </div>
+            @endif
+            @if(Session::has('edit'))
+                <div>
+                <h6 class="alert alert-success" style ="font-size:20px;">{{Session::get('edit')}}</h6>
+                </div>
+            @endif
                 <h2 class="section-heading">Just Book</h2>
                 <p class="section-sub-heading"> We love book</p>
                 <p class="about-text">

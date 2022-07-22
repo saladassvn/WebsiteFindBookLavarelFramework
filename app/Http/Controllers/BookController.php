@@ -80,23 +80,55 @@ class BookController extends Controller
         $sach = sach::find($MaSach);
         $oldCart = Session::has('cart') ? Session::get('cart') : null;
         $cart = new cart($oldCart);
-        $cart->add($sach, $sach->MaSach);
+        $cart->add($sach, $sach->MaSach,$request->input('sl'));
 
         $request->session()->put('cart', $cart);
         
 
-        return view('pages.book');
+        return redirect('book')->with('bookadd',"Thêm vào giỏ hàng thành công");
     }
 
     public function checkout(){
         if(!Session::has('cart')){
-            return view('pages.cart');
+            return view('viewcart');
+        }
+        if(Session::has('userID')){
+            $oldCart = Session::get('cart');
+            $cart = new Cart($oldCart);
+            $total = $cart->totalPrice;
+            return view('pages.checkout', ['total' => $total]);
+        }else{
+            return redirect('viewcart')->with('loginRequired',"Bạn phải đăng nhập để mua hàng");
+        }
+
+    }
+
+    public function postCheckOut(Request $r){
+        if(!Session::has('cart')){
+            return redirect('pages.cart');
         }
 
         $oldCart = Session::get('cart');
         $cart = new Cart($oldCart);
-        $total = $cart->totalPrice;
-        return view('pages.checkout', ['total' => $total]);
+
+        
+        $name = $r->input('name');
+        $sdt = $r->input('sdt');
+        $dc = $r->input('dc');
+        $pttt = $r->input('pttt');
+        $tt = $cart->totalPrice;
+
+        DB::insert('insert into donhang (MaDH, TenKH, Phone, DiaChi, HTTT, TongTien) values (?,?,?,?,?,?)',[NULL, $name, $sdt, $dc, $pttt, $tt]);
+        $id=DB::select("SHOW TABLE STATUS LIKE 'donhang'");
+        $next_id=$id[0]->Auto_increment - 1;
+        foreach($cart->items as $book){
+            DB::insert('insert into chitietdonhang (MaCT, MaDH, MaSach, DinhLuong, Gia) values (?,?,?,?,?)', [NULL, $next_id, $book['item']['MaSach'], $book['qty'], $book['price']]);
+        }
+
+        Session::forget(['cart']);
+        return redirect('homepage')->with('success',"Bạn đã đặt mua thành công! Bạn vui lòng đợi quản trị viên liên lạc với bạn để xác minh đơn hàng.");
+
+
     }
 
 

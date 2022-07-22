@@ -53,13 +53,13 @@ if (!isset($_SESSION['admin'])) {
                         <td>{{ $sach['TenSach'] }}</td>
                         <td>{{ $sach['DanhMuc'] }}</td>
                         <td>{{ $sach['MoTa'] }}</td>
-                        <td><img src=../public/User/img/{{ $sach['HinhAnh'] }} height="100" width="80"></td>
+                        <td><img src="../public/User/img/{{ $sach['HinhAnh'] }}" height="100" width="80"></td>
                         <td>{{ $sach['DonGia'] }}</td>
                         <td>
-                            <a href={{ '/admin/edit' . $sach['MaSach'] }} class="btn-ED-add">
+                            <a href="{{URL::to('/admin/edit' . $sach['MaSach']) }}" class="btn-ED-add">
                                 <button class="btn btn-warning">Chỉnh Sửa</button>
                             </a>
-                            <a href={{ '/admin/delete/' . $sach['MaSach'] }} class="btn-ED-add">
+                            <a href="{{URL::to('/admin/delete/' . $sach['MaSach']) }}" class="btn-ED-add">
                                 <button class="btn btn-danger">Xóa</button>
                             </a>
                         </td>
