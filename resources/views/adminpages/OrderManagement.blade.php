@@ -76,7 +76,7 @@
                             <td style="text-align: center;">{{ $donhang['TongTien'] }}</td>
                             <td style="text-align: center;">
                             
-                                <a href="{{(URL::to('/admin/detailOrder/' . $donhang['MaDH']))}}" class="btn-ED-add">
+                                <a href="{{(URL::to('/admin/detailOrder' . $donhang['MaDH']))}}" class="btn-ED-add">
                                     <button class="btn btn-warning">Xem Chi Tiết</button>
                                 </a>
                                 

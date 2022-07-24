@@ -66,6 +66,15 @@
                     <label class="from__input" name="HTTT">{{ $donhang['HTTT'] }}</label>
                 </div>
                 <div class="from_row">
+                    <label class="input__label" style="margin-right: 50px; font-weight:bold; font-size:13px" >Tên sách</label>
+                </div>
+                @foreach($chitietdonhang as $chitietdonhangs)
+                <div class="from_row">
+                    <img id="chevron" src="../public/User/img/{{$chitietdonhangs['HinhAnh']}}">
+                    <label class="from__input" name="TenKH" style = "font-size:11px">   {{ $chitietdonhangs['TenSach']}} - Số lượng: {{ $chitietdonhangs['DinhLuong']}} - Giá: {{ $chitietdonhangs['Gia']}}</label>
+                </div>
+                @endforeach
+                <div class="from_row">
                     <label class="input__label" style="margin-right: 50px;">Tổng Tiền</label>
                     <label class="from__input" name="TongTien">{{ $donhang['TongTien'] }} VNĐ</label>
                 </div>

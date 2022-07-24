@@ -75,6 +75,6 @@ Route::post('admin/create', [IndexAdminController::class, 'AddData']);
 //Quản lý đặt hàng
 Route::get('admin/OrderManagement', [OrderAdminController::class, 'showOrder']);
 //Xem chi tiết đơn hàng
-Route::get('admin/detailOrder/{MaDH}', [OrderAdminController::class, 'detail'])->name('detail');
+Route::get('admin/detailOrder{MaDH}', [OrderAdminController::class, 'detail'])->name('detail');
 //Xóa đơn hàng
 Route::get('admin/deleteOrder/{MaDH}', [OrderAdminController::class, 'delete']);
